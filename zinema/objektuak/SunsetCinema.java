@@ -3,30 +3,40 @@ package objektuak;
 import java.util.ArrayList;
 
 public class SunsetCinema{
-    Eguna[] astea = new Eguna[7];
-    EdukiZerrenda pelikulak;
-    SunsetCinema sunsetCinema;
+    private Eguna[] astea;
+	private EdukiZerrenda pelikulak;
+	private static SunsetCinema sunsetCinema = new SunsetCinema();
 
-    public SunsetCinema(Eguna[] astea, EdukiZerrenda pelikulak, SunsetCinema sunsetCinema){
-        this.astea=astea;
-        this.pelikulak=pelikulak;
-        this.sunsetCinema=sunsetCinema;
+    private SunsetCinema(){
+        this.astea = new Eguna[7];
+        this.pelikulak = new EdukiZerrenda();
     }
-
-    public EdukiZerrenda getPelikulak() {
-		return pelikulak;
-	}
-
-	public void setPelikulak(EdukiZerrenda pelikulak) {
-		this.pelikulak = pelikulak;
-	}
 
 	public SunsetCinema getSunsetCinema() {
 		return sunsetCinema;
 	}
 
-	public void setSunsetCinema(SunsetCinema sunsetCinema) {
-		this.sunsetCinema = sunsetCinema;
+	public void idatzi(){
+
+	}
+
+	public void irakurri(){
+		
+		try {
+			File fitxategia = new File(fitxa_path);
+			FileReader fr = new FileReader(fitxategia);
+			BufferedReader br = new BufferedReader(fr);
+
+			String lerroa;
+			while ((lerroa = br.readLine()) != null) {
+				info.add(lerroa);
+			}
+
+			fr.close();
+
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
 	}
 
 }
