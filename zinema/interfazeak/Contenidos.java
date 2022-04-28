@@ -10,6 +10,8 @@ import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Font;
 import javax.swing.Box;
 import java.awt.Component;
@@ -155,6 +157,13 @@ public class Contenidos {
 		JButton btnResDia = new JButton("Resumen del D\u00EDa");
 		btnResDia.setEnabled(false);
 		horizontalBox_3.add(btnResDia);
+		
+		btnEditar.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){
+            	frame.setVisible(false);
+            	EdukiaEditatu.main(null);
+            }
+		});
 		
 	}
 

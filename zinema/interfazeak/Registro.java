@@ -10,6 +10,8 @@ import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Font;
 import javax.swing.Box;
 import java.awt.Component;
@@ -244,6 +246,14 @@ public class Registro {
 		
 		JButton btnLogin = new JButton("Volver a login");
 		horizontalBox_8.add(btnLogin);
+		
+		btnLogin.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){
+            	frame.setVisible(false);
+            	Login.main(null);
+            	
+            }
+		});
 	}
 
 }

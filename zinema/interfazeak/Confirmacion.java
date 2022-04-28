@@ -10,6 +10,7 @@ import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.awt.event.*;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
@@ -96,6 +97,12 @@ public class Confirmacion {
 		gbc_btnVLogin.gridx = 1;
 		gbc_btnVLogin.gridy = 7;
 		panel.add(btnVLogin, gbc_btnVLogin);
+		btnVLogin.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){
+            	frame.setVisible(false);
+            	Ongietorria.main(null);
+            }
+		});
 
 	}
 
