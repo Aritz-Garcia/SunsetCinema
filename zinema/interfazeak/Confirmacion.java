@@ -75,7 +75,7 @@ public class Confirmacion {
 		
 		JLabel lblLogo = new JLabel("");
 		lblLogo.setBackground(Color.WHITE);
-		lblLogo.setIcon(new ImageIcon(Confirmacion.class.getResource("/interfazeak/logoa/logo_pequeno.png")));
+		lblLogo.setIcon(new ImageIcon(Confirmacion.class.getResource("../imagenes/logoa/logo_pequeno.png")));
 		GridBagConstraints gbc_lblLogo = new GridBagConstraints();
 		gbc_lblLogo.insets = new Insets(0, 0, 5, 5);
 		gbc_lblLogo.gridx = 1;
