@@ -1,10 +1,6 @@
 package interfazeak;
 
 import java.awt.EventQueue;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-
-import javax.swing.Box;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
