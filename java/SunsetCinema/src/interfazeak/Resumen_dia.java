@@ -1,14 +1,11 @@
-package src;
+package interfazeak;
 
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
-import java.awt.FlowLayout;
 import javax.swing.border.EmptyBorder;
-import java.awt.Choice;
-import javax.swing.JMenuBar;
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
@@ -17,22 +14,12 @@ import java.awt.Font;
 import javax.swing.Box;
 import java.awt.Component;
 import java.awt.Dimension;
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.JComboBox;
-import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import javax.swing.JTable;
 
 public class Resumen_dia {
 
 	private JFrame frame;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JPasswordField passwordField;
-	private JPasswordField passwordField_1;
 	private JTable table;
 
 	/**

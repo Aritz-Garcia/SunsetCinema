@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+<<<<<<< HEAD
 	<classpathentry excluding="objektuak/" kind="src" path="java/SunsetCinema/src"/>
 	<classpathentry kind="src" path="java/SunsetCinema/src/objektuak"/>
+=======
+	<classpathentry kind="src" path="java/SunsetCinema/src"/>
+>>>>>>> 685529293a8084888c7adbbe60c9cfcac453a2ef
 	<classpathentry kind="output" path="bin"/>
 </classpath>
