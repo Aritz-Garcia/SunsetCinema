@@ -1,19 +1,23 @@
 package interfazeak;
 
 import java.awt.EventQueue;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
+import javax.swing.Box;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
 import java.awt.BorderLayout;
-import java.awt.Button;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.Color;
 
 public class Ongietorria {
 
 	private JFrame frame;
-	private final Button button = new Button("Ongietorria izan Sunset Zinemara, zein pelikulak zein prezioak" 
-											 + " hoberenak diren lekua!" + "\n" +"Gure zerbitzuko login-era joateko "
-											 + "pantalia honetako edozein lekutan egin dezazu klik, mesedez.");
 
 	/**
 	 * Launch the application.
@@ -45,13 +49,22 @@ public class Ongietorria {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 300);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		button.setActionCommand("Ongietorria izan Sunset Zinemara, zein pelikulak zein prezioak hoberenak diren lekua!\r\n\r\nGure zerbitzuko login-era joateko pantalia honetako edozein lekutan egin ezazu klik, mesedez.");
-		button.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
+		
+		JPanel contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		frame.getContentPane().add(contentPane, BorderLayout.CENTER);
+		contentPane.setLayout(new BorderLayout(0, 0));
+		
+		contentPane.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Registro.main(null);
 			}
 		});
-		frame.getContentPane().add(button, BorderLayout.CENTER);
+		
+		JLabel lblEdukiak = new JLabel("Ongietorria izan Sunset Zinemara, zein pelikulak zein prezioak hoberenak diren lekua!");
+		lblEdukiak.setBackground(new Color(240, 240, 240));
+		contentPane.add(lblEdukiak, BorderLayout.CENTER);
 	}
 
-}
+	}
