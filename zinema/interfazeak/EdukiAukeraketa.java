@@ -213,6 +213,27 @@ public class EdukiAukeraketa {
 		JButton btnBalioztatu = new JButton("Balioztatu");
 		btnBalioztatu.setEnabled(false);
 		horizontalBox_6.add(btnBalioztatu);
+		
+		btnHasiera.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){
+            	frame.setVisible(false);
+            	Ongietorria.main(null);
+            }
+		});
+		
+		btnKartelera.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){
+            	frame.setVisible(false);
+            	Contenidos.main(null);
+            }
+		});
+		
+		btnBalioztatu.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){
+            	frame.setVisible(false);
+            	Confirmacion.main(null);
+            }
+		});
 	}
 
 }
