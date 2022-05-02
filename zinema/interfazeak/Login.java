@@ -1,27 +1,25 @@
 package interfazeak;
 
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import java.awt.GridBagLayout;
-import javax.swing.JLabel;
-import javax.swing.JPasswordField;
-
+import java.awt.Font;
 import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.Box;
-import java.awt.Component;
-import java.awt.Dimension;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import objektuak.SunsetCinema;
-
-import javax.swing.JButton;
-import java.awt.Color;
-import java.awt.Font;
 
 public class Login {
 
@@ -155,12 +153,29 @@ public class Login {
 	}
 
 	public void logeatu() {
-		if (SunsetCinema.getNireSunsetCinema().logeatu(
-				textFieldErabiltzailea.getText(),
-				textFieldPasahitza.getText())) {
-			frame.setVisible(false);
-			EdukiAukeraketa.main(null);
+		if (textFieldErabiltzailea.getText().isBlank()) {
+			setErrorea("Erabiltzailea eremua bete behar da.");
 		}
+		if (textFieldPasahitza.getText().isBlank()) {
+			setErrorea("Pasahitza eremua bete behar da.");
+		}
+		if (SunsetCinema.getNireSunsetCinema().erabiltzaileaExistitzenDa(textFieldErabiltzailea.getText())) {
+			if (SunsetCinema.getNireSunsetCinema().logeatu(
+					textFieldErabiltzailea.getText(),
+					textFieldPasahitza.getText())) {
+				frame.setVisible(false);
+				EdukiAukeraketa.main(null);
+			} else {
+				setErrorea("Pasahitza ez da zuzena");
+			}
+		} else {
+			setErrorea("Erabiltzailea ez da existitzen");
+		}
+	}
+
+	private void setErrorea(String errorea) {
+		// TODO Auto-generated method stub
+
 	}
 
 }

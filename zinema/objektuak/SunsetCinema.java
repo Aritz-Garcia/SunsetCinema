@@ -138,4 +138,13 @@ public class SunsetCinema {
 		return false;
 	}
 
+	public boolean erabiltzaileaExistitzenDa(String log) {
+		for (Langilea langilea : langileak) {
+			if (langilea.getLogin().equals(log)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 }
