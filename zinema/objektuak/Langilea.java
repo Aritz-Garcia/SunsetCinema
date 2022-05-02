@@ -22,6 +22,7 @@ public class Langilea{
                         this.izena=izena;
                         this.abizena1=abizena1;
                         this.abizena2=abizena2;
+						this.jaiotzeData=jaiotzeData;
                         this.enpresaKargua=enpresaKargua;
                     }
 

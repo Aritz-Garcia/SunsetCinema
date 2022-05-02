@@ -6,6 +6,8 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import objektuak.SunsetCinema;
+
 import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -19,6 +21,7 @@ public class Ongietorria {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		SunsetCinema.getNireSunsetCinema().kargatuDatuak();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

@@ -1,7 +1,5 @@
 package objektuak;
 
-import java.io.*;
-
 public class LaburMe extends Eduki{
     private String fabula;
 

@@ -9,7 +9,7 @@ public class Eguna {
     private EdukiZerrenda edukiak;
     private int orduDisMax;
 
-    private Eguna() {
+    public Eguna() {
         this.beteta = false;
         this.edukiak = new EdukiZerrenda();
     }
@@ -17,7 +17,7 @@ public class Eguna {
     /**
      * @param izena asteko egunaren izena
      */
-    private Eguna(AstekoEguna izena) {
+    public Eguna(AstekoEguna izena) {
         this.izena = izena;
         this.beteta = false;
         this.edukiak = new EdukiZerrenda();

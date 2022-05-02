@@ -24,6 +24,10 @@ public class EdukiZerrenda {
         }
     }
 
+    public void gehitu(Eduki edukia) {
+        edukiak.add(edukia);
+    }
+
     private boolean sartuDauiteke(Eduki edukia) {
         for (Eduki eduki : edukiak) {
             if (eduki.generoTituluaKonparatu(edukia)) {

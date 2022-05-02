@@ -1,7 +1,5 @@
 package objektuak;
 
-import java.io.*;
-
 public class Eduki {
     private int id;
     private String titulua;
