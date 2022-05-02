@@ -21,7 +21,7 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.BorderLayout;
 
-public class EdukiAukeraketa {
+public class EgunaAukeratu {
 
 	private JFrame frame;
 
@@ -32,7 +32,7 @@ public class EdukiAukeraketa {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					EdukiAukeraketa window = new EdukiAukeraketa();
+					EgunaAukeratu window = new EgunaAukeratu();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -44,7 +44,7 @@ public class EdukiAukeraketa {
 	/**
 	 * Create the application.
 	 */
-	public EdukiAukeraketa() {
+	public EgunaAukeratu() {
 		initialize();
 	}
 
@@ -225,6 +225,13 @@ public class EdukiAukeraketa {
             public void actionPerformed(ActionEvent e){
             	frame.setVisible(false);
             	Contenidos.main(null);
+            }
+		});
+		
+		btnAsteko_laburpena.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){
+            	frame.setVisible(false);
+            	Resumen_Semana.main(null);
             }
 		});
 		

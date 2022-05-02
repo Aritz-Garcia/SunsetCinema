@@ -354,7 +354,7 @@ public class Resumen_dia {
 		btnConfirmar.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){
             	frame.setVisible(false);
-            	EdukiAukeraketa.main(null);
+            	EgunaAukeratu.main(null);
             }
 		});
 	}

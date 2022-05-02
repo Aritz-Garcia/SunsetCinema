@@ -164,7 +164,7 @@ public class Login {
 					textFieldErabiltzailea.getText(),
 					textFieldPasahitza.getText())) {
 				frame.setVisible(false);
-				EdukiAukeraketa.main(null);
+				EgunaAukeratu.main(null);
 			} else {
 				setErrorea("Pasahitza ez da zuzena");
 			}
