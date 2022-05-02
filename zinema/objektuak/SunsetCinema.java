@@ -129,4 +129,13 @@ public class SunsetCinema {
 		this.irakurriAstea();
     }
 
+	public boolean logeatu(String log, String pas) {
+		for (Langilea langilea : langileak) {
+			if (langilea.logeatu(log, pas)) {
+				return true;
+			}
+		}
+		return false;
+	}
+
 }

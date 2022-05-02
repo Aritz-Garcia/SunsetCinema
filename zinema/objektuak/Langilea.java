@@ -25,60 +25,14 @@ public class Langilea{
 						this.jaiotzeData=jaiotzeData;
                         this.enpresaKargua=enpresaKargua;
                     }
-
-	public String getLogin() {
-		return login;
+	public boolean logeatu(String log, String pas){
+		if(this.login.equals(log) && this.pass.equals(pas)){
+			return true;
+		}
+		return false;
 	}
-
-	public void setLogin(String login) {
-		this.login = login;
-	}
-
-	public String getPass() {
-		return pass;
-	}
-
-	public void setPass(String pass) {
-		this.pass = pass;
-	}
-
-	public String getIzena() {
-		return izena;
-	}
-
-	public void setIzena(String izena) {
-		this.izena = izena;
-	}
-
-	public String getAbizena1() {
-		return abizena1;
-	}
-
-	public void setAbizena1(String abizena1) {
-		this.abizena1 = abizena1;
-	}
-
-	public String getAbizena2() {
-		return abizena2;
-	}
-
-	public void setAbizena2(String abizena2) {
-		this.abizena2 = abizena2;
-	}
-
-	public LocalDate getJaiotzeData() {
-		return jaiotzeData;
-	}
-
-	public void setJaiotzeData(LocalDate jaiotzeData) {
-		this.jaiotzeData = jaiotzeData;
-	}
-
-	public EnpresaKargua getEnpresaKargua() {
-		return enpresaKargua;
-	}
-
-	public void setEnpresaKargua(EnpresaKargua enpresaKargua) {
-		this.enpresaKargua = enpresaKargua;
+	
+	public void datuakBalidatu() {
+		
 	}
 }
