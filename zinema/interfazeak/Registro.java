@@ -25,13 +25,14 @@ import javax.swing.JButton;
 public class Registro {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
+	private JTextField izena;
+	private JTextField abizena1;
+	private JTextField abizena2;
+	private JTextField jaiotzeData;
+	private JTextField erabiltzailea;
+	private JComboBox comboBoxEnpresaKargua;
 	private JPasswordField passwordField;
-	private JPasswordField passwordField_1;
+	private JPasswordField passwordFieldErrepikatu;
 
 	/**
 	 * Launch the application.
@@ -101,9 +102,9 @@ public class Registro {
 		Component rigidArea = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox.add(rigidArea);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		horizontalBox.add(textField);
+		izena = new JTextField();
+		izena.setColumns(10);
+		horizontalBox.add(izena);
 		
 		Box horizontalBox_1 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_1 = new GridBagConstraints();
@@ -119,9 +120,9 @@ public class Registro {
 		Component rigidArea_1 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_1.add(rigidArea_1);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		horizontalBox_1.add(textField_1);
+		abizena1 = new JTextField();
+		abizena1.setColumns(10);
+		horizontalBox_1.add(abizena1);
 		
 		Box horizontalBox_2 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_2 = new GridBagConstraints();
@@ -137,9 +138,9 @@ public class Registro {
 		Component rigidArea_2 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_2.add(rigidArea_2);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		horizontalBox_2.add(textField_2);
+		abizena2 = new JTextField();
+		abizena2.setColumns(10);
+		horizontalBox_2.add(abizena2);
 		
 		Box horizontalBox_3 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_3 = new GridBagConstraints();
@@ -155,11 +156,11 @@ public class Registro {
 		Component rigidArea_3 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_3.add(rigidArea_3);
 		
-		textField_3 = new JTextField();
-		textField_3.setToolTipText("");
-		textField_3.setHorizontalAlignment(SwingConstants.CENTER);
-		textField_3.setColumns(10);
-		horizontalBox_3.add(textField_3);
+		jaiotzeData = new JTextField();
+		jaiotzeData.setToolTipText("");
+		jaiotzeData.setHorizontalAlignment(SwingConstants.CENTER);
+		jaiotzeData.setColumns(10);
+		horizontalBox_3.add(jaiotzeData);
 		
 		Box horizontalBox_4 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_4 = new GridBagConstraints();
@@ -175,7 +176,7 @@ public class Registro {
 		Component rigidArea_4 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_4.add(rigidArea_4);
 		
-		JComboBox comboBoxEnpresaKargua = new JComboBox();
+		comboBoxEnpresaKargua = new JComboBox();
 		horizontalBox_4.add(comboBoxEnpresaKargua);
 		
 		Box horizontalBox_5 = Box.createHorizontalBox();
@@ -192,9 +193,9 @@ public class Registro {
 		Component rigidArea_5 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_5.add(rigidArea_5);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		horizontalBox_5.add(textField_4);
+		erabiltzailea = new JTextField();
+		erabiltzailea.setColumns(10);
+		horizontalBox_5.add(erabiltzailea);
 		
 		Box horizontalBox_6 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_6 = new GridBagConstraints();
@@ -227,8 +228,8 @@ public class Registro {
 		Component rigidArea_7 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_7.add(rigidArea_7);
 		
-		passwordField_1 = new JPasswordField();
-		horizontalBox_7.add(passwordField_1);
+		passwordFieldErrepikatu = new JPasswordField();
+		horizontalBox_7.add(passwordFieldErrepikatu);
 		
 		Box horizontalBox_8 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_8 = new GridBagConstraints();
