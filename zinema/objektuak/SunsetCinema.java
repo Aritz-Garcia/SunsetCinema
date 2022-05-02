@@ -147,4 +147,13 @@ public class SunsetCinema {
 		return false;
 	}
 
+	public boolean erregistratu(String izen, String abizen1, String abizen2, String jaioData, String login, String pass, int i) {
+		if (erabiltzaileaExistitzenDa(login)) {
+			return false;
+		}
+		Langilea langilea = new Langilea(login, pass, izen, abizen1, abizen2, LocalDate.parse(jaioData), EnpresaKargua.BALIOGABEA);
+		langileak.add(langilea);
+		return true;
+	}
+
 }

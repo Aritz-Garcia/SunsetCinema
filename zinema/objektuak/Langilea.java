@@ -32,10 +32,6 @@ public class Langilea{
 		return false;
 	}
 
-	public void datuakBalidatu() {
-		
-	}
-
 	public String getLogin() {
 		return login;
 	}
