@@ -18,11 +18,15 @@ import java.awt.Component;
 import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JTable;
+import javax.swing.JScrollPane;
+import javax.swing.JSeparator;
+import javax.swing.SwingConstants;
 
 public class Resumen_dia {
 
 	private JFrame frame;
 	private JTable table;
+	private JTable table_1;
 
 	/**
 	 * Launch the application.
@@ -52,23 +56,18 @@ public class Resumen_dia {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 450, 450);
+		frame.getContentPane().setMinimumSize(new Dimension(1, 1000));
+		frame.setBounds(100, 100, 796, 557);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(new BorderLayout(0, 0));
+		GridBagLayout gridBagLayout = new GridBagLayout();
+		gridBagLayout.columnWidths = new int[]{0, 434, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 45, 0, 0, 0, 0};
+		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 1.0, 0.0, 0.0, 1.0};
+		frame.getContentPane().setLayout(gridBagLayout);
 		
-		JPanel contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		frame.getContentPane().add(contentPane, BorderLayout.NORTH);
-		contentPane.setLayout(new BorderLayout(0, 0));
-		
-		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.SOUTH);
-		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[]{20, 115, 20, 0};
-		gbl_panel.rowHeights = new int[]{0, 14, 20, 0, 0, 0, 0, 0};
-		gbl_panel.columnWeights = new double[]{1.0, 1.0, 1.0, Double.MIN_VALUE};
-		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		panel.setLayout(gbl_panel);
+		String tituloak[]= {"Tituloa", "Iraupena", "Hasiera Ordua", "Amaiera Ordua"};
+		String info[][]= proba();
 		
 		JLabel lblResumenDia = new JLabel("RESUMEN DE D\u00CDA");
 		lblResumenDia.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -77,31 +76,37 @@ public class Resumen_dia {
 		gbc_lblResumenDia.insets = new Insets(0, 0, 5, 5);
 		gbc_lblResumenDia.gridx = 1;
 		gbc_lblResumenDia.gridy = 1;
-		panel.add(lblResumenDia, gbc_lblResumenDia);
+		frame.getContentPane().add(lblResumenDia, gbc_lblResumenDia);
 		
-		String tituloak[]= {"Tituloa", "Iraupena", "Hasiera Ordua", "Amaiera Ordua"};
-		String info[][]= proba();		
+		JScrollPane scrollPane = new JScrollPane();
+		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
+		gbc_scrollPane.fill = GridBagConstraints.BOTH;
+		gbc_scrollPane.insets = new Insets(0, 0, 5, 5);
+		gbc_scrollPane.gridx = 1;
+		gbc_scrollPane.gridy = 2;
+		frame.getContentPane().add(scrollPane, gbc_scrollPane);
 		table = new JTable(info, tituloak);
-		GridBagConstraints gbc_table = new GridBagConstraints();
-		gbc_table.insets = new Insets(0, 0, 5, 5);
-		gbc_table.fill = GridBagConstraints.BOTH;
-		gbc_table.gridx = 1;
-		gbc_table.gridy = 3;
-		panel.add(table, gbc_table);
+		scrollPane.setViewportView(table);
 		
-		Component verticalStrut = Box.createVerticalStrut(20);
-		GridBagConstraints gbc_verticalStrut = new GridBagConstraints();
-		gbc_verticalStrut.insets = new Insets(0, 0, 5, 5);
-		gbc_verticalStrut.gridx = 1;
-		gbc_verticalStrut.gridy = 4;
-		panel.add(verticalStrut, gbc_verticalStrut);
+		JScrollPane scrollPane_1 = new JScrollPane();
+		GridBagConstraints gbc_scrollPane_1 = new GridBagConstraints();
+		gbc_scrollPane_1.fill = GridBagConstraints.BOTH;
+		gbc_scrollPane_1.insets = new Insets(0, 0, 5, 5);
+		gbc_scrollPane_1.gridx = 3;
+		gbc_scrollPane_1.gridy = 2;
+		frame.getContentPane().add(scrollPane_1, gbc_scrollPane_1);
+		
+		String tituloEguna[]= {"Tituloa"};
+		String infoEguna[][]= proba();
+		table_1 = new JTable(infoEguna, tituloEguna);
+		scrollPane_1.setViewportView(table_1);
 		
 		JButton btnConfirmar = new JButton("Confirmar");
 		GridBagConstraints gbc_btnConfirmar = new GridBagConstraints();
 		gbc_btnConfirmar.insets = new Insets(0, 0, 5, 5);
 		gbc_btnConfirmar.gridx = 1;
-		gbc_btnConfirmar.gridy = 5;
-		panel.add(btnConfirmar, gbc_btnConfirmar);
+		gbc_btnConfirmar.gridy = 4;
+		frame.getContentPane().add(btnConfirmar, gbc_btnConfirmar);
 	}
 	
 	private String[][] proba() {
