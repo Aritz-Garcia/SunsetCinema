@@ -78,7 +78,7 @@ public class EdukiaEditatu {
 		frame.getContentPane().add(lblNewLabel, gbc_lblNewLabel);
 		
 		izenburua = new JTextField();
-		izenburua.setText(e.getIzenburua());
+		izenburua.setText(e.getTitulua());
 		GridBagConstraints gbc_izenburua = new GridBagConstraints();
 		gbc_izenburua.insets = new Insets(0, 0, 5, 5);
 		gbc_izenburua.fill = GridBagConstraints.HORIZONTAL;

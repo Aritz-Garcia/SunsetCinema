@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class SunsetCinema {
+
+
 	private Eguna[] astea;
 	private EdukiZerrenda edukiak;
 	private ArrayList<Langilea> langileak;
