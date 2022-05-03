@@ -147,11 +147,11 @@ public class SunsetCinema {
 		return false;
 	}
 
-	public boolean erregistratu(String izen, String abizen1, String abizen2, String jaioData, String login, String pass, int i) {
+	public boolean erregistratu(String izen, String abizen1, String abizen2, String jaioData, String login, String pass, String kargua) {
 		if (erabiltzaileaExistitzenDa(login)) {
 			return false;
 		}
-		Langilea langilea = new Langilea(login, pass, izen, abizen1, abizen2, LocalDate.parse(jaioData), EnpresaKargua.BALIOGABEA);
+		Langilea langilea = new Langilea(login, pass, izen, abizen1, abizen2, LocalDate.parse(jaioData), EnpresaKargua.valueOf(kargua));
 		langileak.add(langilea);
 		return true;
 	}
