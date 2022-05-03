@@ -20,7 +20,6 @@ import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.Box;
 import java.awt.Component;
-import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
@@ -34,7 +33,6 @@ public class Resumen_Semana {
 	private JTable tableVier;
 	private JTable tableSab;
 	private JTable tableDom;
-	private JTable table;
 
 	/**
 	 * Launch the application.
