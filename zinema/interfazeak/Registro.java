@@ -6,13 +6,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.border.EmptyBorder;
-
-import objektuak.SunsetCinema;
-
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
@@ -30,14 +25,13 @@ import javax.swing.JButton;
 public class Registro {
 
 	private JFrame frame;
-	private JTextField izena;
-	private JTextField abizena1;
-	private JTextField abizena2;
-	private JTextField jaiotzeData;
-	private JTextField erabiltzailea;
-	private JComboBox comboBoxEnpresaKargua;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JTextField textField_3;
+	private JTextField textField_4;
 	private JPasswordField passwordField;
-	private JPasswordField passwordFieldErrepikatu;
+	private JPasswordField passwordField_1;
 
 	/**
 	 * Launch the application.
@@ -69,22 +63,21 @@ public class Registro {
 		frame = new JFrame();
 		frame.setBounds(100, 100, 450, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		
 		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		frame.getContentPane().add(contentPane, BorderLayout.CENTER);
 		contentPane.setLayout(new BorderLayout(0, 0));
-
+		
 		JPanel panel = new JPanel();
 		contentPane.add(panel, BorderLayout.NORTH);
 		GridBagLayout gbl_panel = new GridBagLayout();
-		gbl_panel.columnWidths = new int[] { 20, 46, 115, 0, 20, 0 };
-		gbl_panel.rowHeights = new int[] { 0, 14, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-		gbl_panel.columnWeights = new double[] { 1.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE };
-		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,
-				Double.MIN_VALUE };
+		gbl_panel.columnWidths = new int[]{20, 46, 115, 0, 20, 0};
+		gbl_panel.rowHeights = new int[]{0, 14, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel.columnWeights = new double[]{1.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
-
+		
 		JLabel lblRegistro = new JLabel("REGISTRO");
 		lblRegistro.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblRegistro.setAlignmentX(0.5f);
@@ -93,7 +86,7 @@ public class Registro {
 		gbc_lblRegistro.gridx = 2;
 		gbc_lblRegistro.gridy = 1;
 		panel.add(lblRegistro, gbc_lblRegistro);
-
+		
 		Box horizontalBox = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox = new GridBagConstraints();
 		gbc_horizontalBox.fill = GridBagConstraints.HORIZONTAL;
@@ -101,17 +94,17 @@ public class Registro {
 		gbc_horizontalBox.gridx = 2;
 		gbc_horizontalBox.gridy = 3;
 		panel.add(horizontalBox, gbc_horizontalBox);
-
+		
 		JLabel lblIzena = new JLabel("Izena:");
 		horizontalBox.add(lblIzena);
-
+		
 		Component rigidArea = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox.add(rigidArea);
-
-		izena = new JTextField();
-		izena.setColumns(10);
-		horizontalBox.add(izena);
-
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		horizontalBox.add(textField);
+		
 		Box horizontalBox_1 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_1 = new GridBagConstraints();
 		gbc_horizontalBox_1.fill = GridBagConstraints.HORIZONTAL;
@@ -119,17 +112,17 @@ public class Registro {
 		gbc_horizontalBox_1.gridx = 2;
 		gbc_horizontalBox_1.gridy = 4;
 		panel.add(horizontalBox_1, gbc_horizontalBox_1);
-
+		
 		JLabel lblAbizena1 = new JLabel("Lehenengo abizena:");
 		horizontalBox_1.add(lblAbizena1);
-
+		
 		Component rigidArea_1 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_1.add(rigidArea_1);
-
-		abizena1 = new JTextField();
-		abizena1.setColumns(10);
-		horizontalBox_1.add(abizena1);
-
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		horizontalBox_1.add(textField_1);
+		
 		Box horizontalBox_2 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_2 = new GridBagConstraints();
 		gbc_horizontalBox_2.fill = GridBagConstraints.HORIZONTAL;
@@ -137,17 +130,17 @@ public class Registro {
 		gbc_horizontalBox_2.gridx = 2;
 		gbc_horizontalBox_2.gridy = 5;
 		panel.add(horizontalBox_2, gbc_horizontalBox_2);
-
+		
 		JLabel lblAbizena2 = new JLabel("Bigarren abizena:");
 		horizontalBox_2.add(lblAbizena2);
-
+		
 		Component rigidArea_2 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_2.add(rigidArea_2);
-
-		abizena2 = new JTextField();
-		abizena2.setColumns(10);
-		horizontalBox_2.add(abizena2);
-
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		horizontalBox_2.add(textField_2);
+		
 		Box horizontalBox_3 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_3 = new GridBagConstraints();
 		gbc_horizontalBox_3.fill = GridBagConstraints.HORIZONTAL;
@@ -155,19 +148,18 @@ public class Registro {
 		gbc_horizontalBox_3.gridx = 2;
 		gbc_horizontalBox_3.gridy = 6;
 		panel.add(horizontalBox_3, gbc_horizontalBox_3);
-
+		
 		JLabel lblJaiotzeData = new JLabel("Jaiotze data:");
 		horizontalBox_3.add(lblJaiotzeData);
-
+		
 		Component rigidArea_3 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_3.add(rigidArea_3);
-
-		jaiotzeData = new JTextField();
-		jaiotzeData.setToolTipText("");
-		jaiotzeData.setHorizontalAlignment(SwingConstants.CENTER);
-		jaiotzeData.setColumns(10);
-		horizontalBox_3.add(jaiotzeData);
-
+		
+		textField_3 = new JTextField();
+		textField_3.setToolTipText("");
+		textField_3.setColumns(10);
+		horizontalBox_3.add(textField_3);
+		
 		Box horizontalBox_4 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_4 = new GridBagConstraints();
 		gbc_horizontalBox_4.fill = GridBagConstraints.HORIZONTAL;
@@ -175,16 +167,16 @@ public class Registro {
 		gbc_horizontalBox_4.gridx = 2;
 		gbc_horizontalBox_4.gridy = 7;
 		panel.add(horizontalBox_4, gbc_horizontalBox_4);
-
+		
 		JLabel lblEnpresaKargua = new JLabel("Enpresaren kargua:");
 		horizontalBox_4.add(lblEnpresaKargua);
-
+		
 		Component rigidArea_4 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_4.add(rigidArea_4);
-
-		comboBoxEnpresaKargua = new JComboBox();
+		
+		JComboBox comboBoxEnpresaKargua = new JComboBox();
 		horizontalBox_4.add(comboBoxEnpresaKargua);
-
+		
 		Box horizontalBox_5 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_5 = new GridBagConstraints();
 		gbc_horizontalBox_5.fill = GridBagConstraints.HORIZONTAL;
@@ -192,17 +184,17 @@ public class Registro {
 		gbc_horizontalBox_5.gridx = 2;
 		gbc_horizontalBox_5.gridy = 8;
 		panel.add(horizontalBox_5, gbc_horizontalBox_5);
-
+		
 		JLabel lblErabiltzailea = new JLabel("Erabiltzailea:");
 		horizontalBox_5.add(lblErabiltzailea);
-
+		
 		Component rigidArea_5 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_5.add(rigidArea_5);
-
-		erabiltzailea = new JTextField();
-		erabiltzailea.setColumns(10);
-		horizontalBox_5.add(erabiltzailea);
-
+		
+		textField_4 = new JTextField();
+		textField_4.setColumns(10);
+		horizontalBox_5.add(textField_4);
+		
 		Box horizontalBox_6 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_6 = new GridBagConstraints();
 		gbc_horizontalBox_6.fill = GridBagConstraints.HORIZONTAL;
@@ -210,16 +202,16 @@ public class Registro {
 		gbc_horizontalBox_6.gridx = 2;
 		gbc_horizontalBox_6.gridy = 9;
 		panel.add(horizontalBox_6, gbc_horizontalBox_6);
-
+		
 		JLabel lblPasahitza1 = new JLabel("Pasahitza:");
 		horizontalBox_6.add(lblPasahitza1);
-
+		
 		Component rigidArea_6 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_6.add(rigidArea_6);
-
+		
 		passwordField = new JPasswordField();
 		horizontalBox_6.add(passwordField);
-
+		
 		Box horizontalBox_7 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_7 = new GridBagConstraints();
 		gbc_horizontalBox_7.fill = GridBagConstraints.HORIZONTAL;
@@ -227,16 +219,16 @@ public class Registro {
 		gbc_horizontalBox_7.gridx = 2;
 		gbc_horizontalBox_7.gridy = 10;
 		panel.add(horizontalBox_7, gbc_horizontalBox_7);
-
+		
 		JLabel lbllPasahitza2 = new JLabel("Errepikatu pasahitza:");
 		horizontalBox_7.add(lbllPasahitza2);
-
+		
 		Component rigidArea_7 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_7.add(rigidArea_7);
-
-		passwordFieldErrepikatu = new JPasswordField();
-		horizontalBox_7.add(passwordFieldErrepikatu);
-
+		
+		passwordField_1 = new JPasswordField();
+		horizontalBox_7.add(passwordField_1);
+		
 		Box horizontalBox_8 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_8 = new GridBagConstraints();
 		gbc_horizontalBox_8.fill = GridBagConstraints.HORIZONTAL;
@@ -244,64 +236,23 @@ public class Registro {
 		gbc_horizontalBox_8.gridx = 2;
 		gbc_horizontalBox_8.gridy = 11;
 		panel.add(horizontalBox_8, gbc_horizontalBox_8);
-
-		JButton btnRegistrar = new JButton("Erregitratu");
+		
+		JButton btnRegistrar = new JButton("Registrar usuario");
 		horizontalBox_8.add(btnRegistrar);
-
+		
 		Component rigidArea_8 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_8.add(rigidArea_8);
-
-		JButton btnLogin = new JButton("Loginera bueltatu");
+		
+		JButton btnLogin = new JButton("Volver a login");
 		horizontalBox_8.add(btnLogin);
-
-		btnLogin.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				frame.setVisible(false);
-				Login.main(null);
-
-			}
-		});
-
-		btnRegistrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				String izen = izena.getText();
-				String abizen1 = abizena1.getText();
-				String abizen2 = abizena2.getText();
-				String jaioData = jaiotzeData.getText();
-				String login = erabiltzailea.getText();
-				String pass = passwordField.getPassword().toString();
-				String passErrepikatu = passwordFieldErrepikatu.getPassword().toString();
-				datuakBalidatu(izen, abizen1, abizen2, jaioData, login, pass, passErrepikatu);
-			}
+		
+		btnLogin.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){
+            	frame.setVisible(false);
+            	Login.main(null);
+            	
+            }
 		});
 	}
 
-	private void datuakBalidatu(String izen, String abizen1, String abizen2, String jaioData, String login,
-			String pass, String passErrepikatu) {
-		if (izen.isBlank()) {
-			JOptionPane.showMessageDialog(null, "Izena ezin da hutsa izan");
-		} else if (abizen1.isBlank()) {
-			JOptionPane.showMessageDialog(null, "Abizena ezin da hutsa izan");
-		} else if (comboBoxEnpresaKargua.getSelectedIndex()<0){
-			JOptionPane.showMessageDialog(null, "Enpresa kargua aukeratu");
-		} else if (jaioData.isBlank()) {
-			JOptionPane.showMessageDialog(null, "Jaiotze data ezin da hutsa izan");
-		} else if (login.isBlank()) {
-			JOptionPane.showMessageDialog(null, "Erabiltzailea ezin da hutsa izan");
-		} else if (pass.isBlank()) {
-			JOptionPane.showMessageDialog(null, "Pasahitza ezin da hutsa izan");
-		} else if (passErrepikatu.isBlank()) {
-			JOptionPane.showMessageDialog(null, "Errepikatu pasahitza ezin da hutsa izan");
-		} else if (!pass.equals(passErrepikatu)) {
-			JOptionPane.showMessageDialog(null, "Pasahitzak ez dute bat egiten");
-		} else {
-			if(SunsetCinema.getNireSunsetCinema().erregistratu(izen, abizen1, abizen2, jaioData, login, pass, comboBoxEnpresaKargua.getSelectedIndex())) {
-				JOptionPane.showMessageDialog(null, "Erregistroa ondo egin da");
-				frame.setVisible(false);
-				Login.main(null);
-			}else {
-				JOptionPane.showMessageDialog(null, "Erabiltzailea existitzen da");
-			}
-		}
-	}
 }
