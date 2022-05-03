@@ -1,5 +1,6 @@
 package objektuak;
 
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class EdukiZerrenda {
@@ -71,6 +72,23 @@ public class EdukiZerrenda {
             return 0;
         }
         return edukiak.size() - 1;
+    }
+
+    public int getEdukiKop() {
+        return edukiak.size();
+    }
+
+    public String[][] getLaburpena() {
+        String[][] laburpena = new String[edukiak.size()][3];
+        LocalTime hasHordua = LocalTime.of(16, 0);
+        for (int i = 0; i < edukiak.size(); i++) {
+            laburpena[i][0] = edukiak.get(i).getTitulua();
+            laburpena[i][1] = hasHordua + ""; //para aser to string si aser to estring
+            hasHordua = hasHordua.plusMinutes(edukiak.get(i).getIraupena());
+            laburpena[i][2] = hasHordua + ""; // lo mimo
+            
+        }
+        return laburpena;
     }
     
 }

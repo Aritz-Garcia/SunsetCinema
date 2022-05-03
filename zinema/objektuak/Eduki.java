@@ -53,9 +53,5 @@ public class Eduki {
         }
         return false;
     }
-
-    public String getIzenburua() {
-        return null;
-    }
     
 }

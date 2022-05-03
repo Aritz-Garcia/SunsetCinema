@@ -6,12 +6,20 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.border.EmptyBorder;
+
+import objektuak.EnpresaKargua;
+import objektuak.SunsetCinema;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.format.DateTimeParseException;
 import java.awt.Font;
 import javax.swing.Box;
 import java.awt.Component;
@@ -25,13 +33,14 @@ import javax.swing.JButton;
 public class Registro {
 
 	private JFrame frame;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JPasswordField passwordField;
-	private JPasswordField passwordField_1;
+	private JTextField izen;
+	private JTextField abizen1;
+	private JTextField abizen2;
+	private JTextField jaiotze;
+	private JTextField erab;
+	private JPasswordField pass;
+	private JPasswordField passErre;
+	private JComboBox comboBoxEnpresaKargua;
 
 	/**
 	 * Launch the application.
@@ -101,9 +110,9 @@ public class Registro {
 		Component rigidArea = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox.add(rigidArea);
 		
-		textField = new JTextField();
-		textField.setColumns(10);
-		horizontalBox.add(textField);
+		izen = new JTextField();
+		izen.setColumns(10);
+		horizontalBox.add(izen);
 		
 		Box horizontalBox_1 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_1 = new GridBagConstraints();
@@ -113,15 +122,15 @@ public class Registro {
 		gbc_horizontalBox_1.gridy = 4;
 		panel.add(horizontalBox_1, gbc_horizontalBox_1);
 		
-		JLabel lblAbizena1 = new JLabel("Lehenengo abizena:");
-		horizontalBox_1.add(lblAbizena1);
+		JLabel lblabiz = new JLabel("Lehenengo abizena:");
+		horizontalBox_1.add(lblabiz);
 		
 		Component rigidArea_1 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_1.add(rigidArea_1);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		horizontalBox_1.add(textField_1);
+		abizen1 = new JTextField();
+		abizen1.setColumns(10);
+		horizontalBox_1.add(abizen1);
 		
 		Box horizontalBox_2 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_2 = new GridBagConstraints();
@@ -137,9 +146,9 @@ public class Registro {
 		Component rigidArea_2 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_2.add(rigidArea_2);
 		
-		textField_2 = new JTextField();
-		textField_2.setColumns(10);
-		horizontalBox_2.add(textField_2);
+		abizen2 = new JTextField();
+		abizen2.setColumns(10);
+		horizontalBox_2.add(abizen2);
 		
 		Box horizontalBox_3 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_3 = new GridBagConstraints();
@@ -155,10 +164,10 @@ public class Registro {
 		Component rigidArea_3 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_3.add(rigidArea_3);
 		
-		textField_3 = new JTextField();
-		textField_3.setToolTipText("");
-		textField_3.setColumns(10);
-		horizontalBox_3.add(textField_3);
+		jaiotze = new JTextField();
+		jaiotze.setToolTipText("");
+		jaiotze.setColumns(10);
+		horizontalBox_3.add(jaiotze);
 		
 		Box horizontalBox_4 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_4 = new GridBagConstraints();
@@ -174,7 +183,7 @@ public class Registro {
 		Component rigidArea_4 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_4.add(rigidArea_4);
 		
-		JComboBox comboBoxEnpresaKargua = new JComboBox();
+		comboBoxEnpresaKargua = new JComboBox(EnpresaKargua.values());
 		horizontalBox_4.add(comboBoxEnpresaKargua);
 		
 		Box horizontalBox_5 = Box.createHorizontalBox();
@@ -191,9 +200,9 @@ public class Registro {
 		Component rigidArea_5 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_5.add(rigidArea_5);
 		
-		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		horizontalBox_5.add(textField_4);
+		erab = new JTextField();
+		erab.setColumns(10);
+		horizontalBox_5.add(erab);
 		
 		Box horizontalBox_6 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_6 = new GridBagConstraints();
@@ -209,8 +218,8 @@ public class Registro {
 		Component rigidArea_6 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_6.add(rigidArea_6);
 		
-		passwordField = new JPasswordField();
-		horizontalBox_6.add(passwordField);
+		pass = new JPasswordField();
+		horizontalBox_6.add(pass);
 		
 		Box horizontalBox_7 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_7 = new GridBagConstraints();
@@ -226,8 +235,8 @@ public class Registro {
 		Component rigidArea_7 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_7.add(rigidArea_7);
 		
-		passwordField_1 = new JPasswordField();
-		horizontalBox_7.add(passwordField_1);
+		passErre = new JPasswordField();
+		horizontalBox_7.add(passErre);
 		
 		Box horizontalBox_8 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_8 = new GridBagConstraints();
@@ -239,6 +248,55 @@ public class Registro {
 		
 		JButton btnRegistrar = new JButton("Registrar usuario");
 		horizontalBox_8.add(btnRegistrar);
+
+		btnRegistrar.addActionListener(new ActionListener(){  
+            public void actionPerformed(ActionEvent e){
+				String izena = izen.getText();
+				String abizena1 = abizen1.getText();
+				String abizena2 = abizen2.getText();
+				String jaiotzeData = jaiotze.getText();
+				String login = erab.getText();
+				String pasahitza = new String(pass.getPassword());
+				String pasahitzaErre = new String(passErre.getPassword());
+				EnpresaKargua enpresaKargua = (EnpresaKargua) comboBoxEnpresaKargua.getSelectedItem();
+
+
+				if (izena.isBlank()) {
+					JOptionPane.showMessageDialog(null, "Izena ezin da hutsa izan");
+				} else if (abizena1.isBlank()) {
+					JOptionPane.showMessageDialog(null, "Abizena ezin da hutsa izan");
+				} else if (enpresaKargua == null) {
+					JOptionPane.showMessageDialog(null, "Enpresa kargua aukeratu");
+				} else if (!dataOndo(jaiotzeData)) {
+					JOptionPane.showMessageDialog(null, "Data ez da zuzena");
+				} else if (login.isBlank()) {
+					JOptionPane.showMessageDialog(null, "Erabiltzailea ezin da hutsa izan");
+				} else if (pasahitza.isBlank()) {
+					JOptionPane.showMessageDialog(null, "Pasahitza ezin da hutsa izan");
+				} else if (pasahitzaErre.isBlank()) {
+					JOptionPane.showMessageDialog(null, "Errepikatu pasahitza ezin da hutsa izan");
+				} else if (!pasahitza.equals(pasahitzaErre)) {
+					JOptionPane.showMessageDialog(null, "Pasahitzek ez dute bat egiten");
+				} else {
+					if(SunsetCinema.getNireSunsetCinema().erregistratu(izena, abizena1, abizena2, jaiotzeData, login, pasahitza, enpresaKargua)){
+						JOptionPane.showMessageDialog(null, "Erregistroa ondo egin da");
+						frame.setVisible(false);
+						Login.main(null);
+					}else {
+						JOptionPane.showMessageDialog(null, "Erabiltzailea existitzen da");
+					}
+				}          	
+            }
+
+			private boolean dataOndo(String jaiotzeData) {
+				try {
+					LocalDate.parse(jaiotzeData);
+					return true;
+				} catch (DateTimeParseException e) {
+					return false;
+				}
+			}
+		});
 		
 		Component rigidArea_8 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_8.add(rigidArea_8);

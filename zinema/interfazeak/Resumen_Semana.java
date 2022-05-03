@@ -6,6 +6,10 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.border.EmptyBorder;
+
+import objektuak.AstekoEguna;
+import objektuak.SunsetCinema;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
@@ -59,6 +63,7 @@ public class Resumen_Semana {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
+		SunsetCinema sc = SunsetCinema.getNireSunsetCinema();
 		frame = new JFrame();
 		frame.setBounds(100, 100, 1500, 450);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -77,8 +82,8 @@ public class Resumen_Semana {
 		gbl_panel.rowWeights = new double[]{1.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 1.0, 1.0, Double.MIN_VALUE};
 		panel.setLayout(gbl_panel);
 		
-		String titulos[] = {"Título", "Hora Inicio", "Hora Fin"};
-		String infoLun[][] = prueba();
+		String titulos[] = {"Izenburua", "Hasierako ordua", "Amaierako ordua"};
+		String infoLun[][] = sc.infoEguna(AstekoEguna.ASTELEHENA);
 		
 		JLabel lblResumenDia = new JLabel("RESUMEN DE SEMANA");
 		lblResumenDia.setFont(new Font("Tahoma", Font.BOLD, 15));
@@ -150,7 +155,7 @@ public class Resumen_Semana {
 		gbc_verticalBox_1.gridy = 4;
 		panel.add(verticalBox_1, gbc_verticalBox_1);
 		
-		String infoMar[][] = prueba();
+		String infoMar[][] = sc.infoEguna(AstekoEguna.ASTEARTEA);
 		tableMar = new JTable(infoMar, titulos);
 		tableMar.setEnabled(false);
 		tableMar.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -164,7 +169,7 @@ public class Resumen_Semana {
 		gbc_verticalBox_2.gridy = 4;
 		panel.add(verticalBox_2, gbc_verticalBox_2);
 		
-		String infoMier[][] = prueba();
+		String infoMier[][] = sc.infoEguna(AstekoEguna.ASTEAZKENA);
 		tableMier = new JTable(infoMier, titulos);
 		tableMier.setEnabled(false);
 		tableMier.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
@@ -178,13 +183,13 @@ public class Resumen_Semana {
 		gbc_verticalBox_3.gridy = 4;
 		panel.add(verticalBox_3, gbc_verticalBox_3);
 		
-		String infoJuev[][] = prueba1();
+		String infoJuev[][] = sc.infoEguna(AstekoEguna.OSTEGUNA);
 		tableJuev = new JTable(infoJuev, titulos);
 		tableJuev.setEnabled(false);
 		tableJuev.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		verticalBox_3.add(tableJuev);
 		
-		String infoVier[][] = prueba();
+		String infoVier[][] = sc.infoEguna(AstekoEguna.OSTIRALA);
 		
 		JLabel lblOstirala = new JLabel("Ostirala");
 		GridBagConstraints gbc_lblOstirala = new GridBagConstraints();
@@ -226,7 +231,7 @@ public class Resumen_Semana {
 		tableVier.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		verticalBox_4.add(tableVier);
 		
-		String infoSab[][] = prueba();
+		String infoSab[][] = sc.infoEguna(AstekoEguna.LARUNBATA);
 		
 		Box verticalBox_5 = Box.createVerticalBox();
 		GridBagConstraints gbc_verticalBox_5 = new GridBagConstraints();
@@ -240,7 +245,7 @@ public class Resumen_Semana {
 		tableSab.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 		verticalBox_5.add(tableSab);
 		
-		String infoDom[][] = prueba();
+		String infoDom[][] = sc.infoEguna(AstekoEguna.IGANDEA);
 		
 		
 		Box verticalBox_6 = Box.createVerticalBox();
@@ -272,49 +277,4 @@ public class Resumen_Semana {
             }
 		});
 	}
-	
-	private String[][] prueba() {
-		
-		String info[][] = new String[2][3];
-		info[0][0] = "IAHBDUYFDS";
-		info[0][1] = "19:00";
-		info[0][2] = "20:30";
-		info[1][0] = "JIFDUSHSDG9IOF";
-		info[1][1] = "20:30";
-		info[1][2] = "21:30";
-		
-		return info;
-	}
-	
-private String[][] prueba1() {
-		
-		String info[][] = new String[8][3];
-		info[0][0] = "IAHBDUYFDS";
-		info[0][1] = "19:00";
-		info[0][2] = "20:30";
-		info[1][0] = "JIFDUSHSDG9IOF";
-		info[1][1] = "20:30";
-		info[1][2] = "21:30";
-		info[2][0] = "JIFDUSHSDG9IOF";
-		info[2][1] = "20:30";
-		info[2][2] = "21:30";
-		info[3][0] = "JIFDUSHSDG9IOF";
-		info[3][1] = "20:30";
-		info[3][2] = "21:30";
-		info[4][0] = "JIFDUSHSDG9IOF";
-		info[4][1] = "20:30";
-		info[4][2] = "21:30";
-		info[5][0] = "JIFDUSHSDG9IOF";
-		info[5][1] = "20:30";
-		info[5][2] = "21:30";
-		info[6][0] = "JIFDUSHSDG9IOF";
-		info[6][1] = "20:30";
-		info[6][2] = "21:30";
-		info[7][0] = "JIFDUSHSDG9IOF";
-		info[7][1] = "20:30";
-		info[7][2] = "21:30";
-		
-		return info;
-	}
-
 }

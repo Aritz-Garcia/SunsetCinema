@@ -50,6 +50,9 @@ public class Eguna {
             if (edukiak.getIraupenOsoa() + edukia.getIraupena() <= orduDisMax*60)
                 edukiak.sartuEdukia(edukia);
     }
+    public void setEdukiak(EdukiZerrenda edukiak) {
+        this.edukiak = edukiak;
+    }
 
     public void edukiaKenduById(int id) {
         this.edukiak.ezabatuById(id);
@@ -61,6 +64,14 @@ public class Eguna {
 
     public LocalTime getAzkenOrdua() {
         return LocalTime.of(orduDisMax, 0).plusMinutes(this.edukiak.getIraupenOsoa());
+    }
+
+    public String getIzena() {
+        return this.izena.toString();
+    }
+
+    public String[][] getLaburpena() {
+        return edukiak.getLaburpena();
     }
 
 }

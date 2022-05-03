@@ -29,13 +29,13 @@ public class SunsetCinema {
 		this.langileak = new ArrayList<Langilea>();
 		PATH_MAP.put("Edukiak", "./datuak/Edukiak.csv");
 		PATH_MAP.put("Langileak", "./datuak/Langileak.csv");
-		PATH_MAP.put("Astelehena", "./datuak/Astelehena.csv");
-		PATH_MAP.put("Asteartea", "./datuak/Asteartea.csv");
-		PATH_MAP.put("Asteazkena", "./datuak/Asteazkena.csv");
-		PATH_MAP.put("Osteguna", "./datuak/Osteguna.csv");
-		PATH_MAP.put("Ostirala", "./datuak/Ostirala.csv");
-		PATH_MAP.put("Larunbata", "./datuak/Larunbata.csv");
-		PATH_MAP.put("Igandea", "./datuak/Igandea.csv");
+		PATH_MAP.put("ASTELEHENA", "./datuak/Astelehena.csv");
+		PATH_MAP.put("ASTEARTEA", "./datuak/Asteartea.csv");
+		PATH_MAP.put("ASTEAZKENA", "./datuak/Asteazkena.csv");
+		PATH_MAP.put("OSTEGUNA", "./datuak/Osteguna.csv");
+		PATH_MAP.put("OSTIRALA", "./datuak/Ostirala.csv");
+		PATH_MAP.put("LARUNBATA", "./datuak/Larunbata.csv");
+		PATH_MAP.put("IGANDEA", "./datuak/Igandea.csv");
 	}
 
 	public static SunsetCinema getNireSunsetCinema() {
@@ -62,20 +62,21 @@ public class SunsetCinema {
 		}
 	}
 
-	public void irakurriEdukiak() {
-		ArrayList<String> edukiak = irakurri(PATH_MAP.get("Edukiak"));
+	public EdukiZerrenda irakurriEdukiak(String path) {
+		ArrayList<String> edukiak = irakurri(path);
+		EdukiZerrenda edukiZerrenda = new EdukiZerrenda();
 		for (String edukia : edukiak) {
 			String[] info = edukia.split(";");
 			switch (info[0].toLowerCase()) {
 				case "laburmetraia":
-					this.edukiak.gehitu(new LaburMe(
+				edukiZerrenda.gehitu(new LaburMe(
 							Integer.parseInt(info[1]),
 							info[2],
 							Integer.parseInt(info[3]),
 							info[4]));
 					break;
 				case "pelikula":
-					this.edukiak.gehitu(new Pelikula(
+				edukiZerrenda.gehitu(new Pelikula(
 							Integer.parseInt(info[1]),
 							info[2],
 							Integer.parseInt(info[3]),
@@ -83,7 +84,7 @@ public class SunsetCinema {
 							Pegi.valueOf(info[6])));
 					break;
 				case "dokumentala":
-					this.edukiak.gehitu(new Dokumentala(
+				edukiZerrenda.gehitu(new Dokumentala(
 							Integer.parseInt(info[1]),
 							info[2],
 							Integer.parseInt(info[3]),
@@ -95,10 +96,13 @@ public class SunsetCinema {
 					break;
 			}
 		}
+		return edukiZerrenda;
 	}
 
 	public void irakurriAstea(){
-		
+		for (Eguna eguna : astea) {
+			eguna.setEdukiak(irakurriEdukiak(PATH_MAP.get(eguna.getIzena())));
+		}
 	}
 
 	private ArrayList<String> irakurri(String path) {
@@ -124,7 +128,7 @@ public class SunsetCinema {
 	}
 
     public void kargatuDatuak() {
-		this.irakurriEdukiak();
+		this.edukiak = irakurriEdukiak(PATH_MAP.get("Edukiak"));
 		this.irakurriLangileak();
 		this.irakurriAstea();
     }
@@ -147,13 +151,45 @@ public class SunsetCinema {
 		return false;
 	}
 
-	public boolean erregistratu(String izen, String abizen1, String abizen2, String jaioData, String login, String pass, String kargua) {
+	public boolean erregistratu(String izen, String abizen1, String abizen2, String jaioData, String login, String pass, EnpresaKargua kargua) {
 		if (erabiltzaileaExistitzenDa(login)) {
 			return false;
 		}
-		Langilea langilea = new Langilea(login, pass, izen, abizen1, abizen2, LocalDate.parse(jaioData), EnpresaKargua.valueOf(kargua));
+		Langilea langilea = new Langilea(login, pass, izen, abizen1, abizen2, LocalDate.parse(jaioData), kargua);
 		langileak.add(langilea);
 		return true;
 	}
 
+	/**
+	 * @param izeEguna izen bat emanda, egunaren edukiak itzultzen ditu
+	 * @return Izenburua | Hasierako ordua | Amaierako ordua
+	 */
+
+	public String[][] infoEguna(AstekoEguna izeEguna) {
+		int i = -1;
+		switch (izeEguna) {
+			case ASTELEHENA:
+				i = 0;
+				break;
+			case ASTEARTEA:
+				i = 1;
+				break;
+			case ASTEAZKENA:
+				i = 2;
+				break;
+			case OSTEGUNA:
+				i = 3;
+				break;
+			case OSTIRALA:
+				i = 4;
+				break;
+			case LARUNBATA:
+				i = 5;
+				break;
+			case IGANDEA:
+				i = 6;
+				break;
+		}
+		return astea[i].getLaburpena();
+	}
 }
