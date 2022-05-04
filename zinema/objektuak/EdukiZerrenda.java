@@ -38,15 +38,6 @@ public class EdukiZerrenda {
         return true;
     }
 
-    public int bilatuEdukiById(int id) {
-        for (int i = 0; i < edukiak.size(); i++) {
-            if (edukiak.get(i).getId() == id) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
     public void ezabatuById(int id) {
         for (Eduki edukia : edukiak) {
             if (edukia.getId() == id) {
@@ -90,5 +81,9 @@ public class EdukiZerrenda {
         }
         return laburpena;
     }
+
+	public Eduki getEdukia(int i) {
+		return edukiak.get(i);
+	}
     
 }

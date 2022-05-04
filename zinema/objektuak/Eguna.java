@@ -74,4 +74,8 @@ public class Eguna {
         return edukiak.getLaburpena();
     }
 
+	public String infoEdukia(int i) {
+		return edukiak.getEdukia(i).toString();
+	}
+
 }

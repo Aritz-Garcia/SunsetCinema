@@ -38,6 +38,8 @@ public class SunsetCinema {
 		PATH_MAP.put("OSTIRALA", "./datuak/Ostirala.csv");
 		PATH_MAP.put("LARUNBATA", "./datuak/Larunbata.csv");
 		PATH_MAP.put("IGANDEA", "./datuak/Igandea.csv");
+		
+		kargatuDatuak();
 	}
 
 	public static SunsetCinema getNireSunsetCinema() {
@@ -129,7 +131,7 @@ public class SunsetCinema {
 		return info;
 	}
 
-    public void kargatuDatuak() {
+    private void kargatuDatuak() {
 		this.edukiak = irakurriEdukiak(PATH_MAP.get("Edukiak"));
 		this.irakurriLangileak();
 		this.irakurriAstea();
@@ -193,5 +195,33 @@ public class SunsetCinema {
 				break;
 		}
 		return astea[i].getLaburpena();
+	}
+
+	public String infoEgunEdukia(int edukia, AstekoEguna e) {
+		int i = -1;
+		switch (e) {
+			case ASTELEHENA:
+				i = 0;
+				break;
+			case ASTEARTEA:
+				i = 1;
+				break;
+			case ASTEAZKENA:
+				i = 2;
+				break;
+			case OSTEGUNA:
+				i = 3;
+				break;
+			case OSTIRALA:
+				i = 4;
+				break;
+			case LARUNBATA:
+				i = 5;
+				break;
+			case IGANDEA:
+				i = 6;
+				break;
+		}
+		return astea[i].infoEdukia(edukia);
 	}
 }

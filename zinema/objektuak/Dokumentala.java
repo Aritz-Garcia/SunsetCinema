@@ -32,4 +32,10 @@ public class Dokumentala extends LargoMe {
     public String getCSV() {
         return "Dokumentala;" + super.getCSV() + ";;;" + this.tema + ";" + this.produktorea;
     }
+    
+    public String toString() {
+    	return super.toString() +
+    			"\nGaia: " + this.tema +
+    			"\nProduktorea: " + this.produktorea;
+    }
 }

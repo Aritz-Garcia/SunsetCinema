@@ -22,4 +22,9 @@ public class LaburMe extends Eduki{
     public String getCSV() {
         return "LaburMetraia" + super.getCSV() + ";" + this.fabula;      
     }
+    
+    public String toString() {
+        return super.toString() + "\nFabula: " + this.fabula;
+    }
+    
 }

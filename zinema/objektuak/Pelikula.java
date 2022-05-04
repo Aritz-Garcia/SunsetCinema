@@ -43,4 +43,9 @@ public class Pelikula extends LargoMe{
         }
         return false;
     }
+
+    public String toString() {
+        return super.toString() + "\nGeneroa: " + this.generoa + "\nPegi: " + this.pegi;
+    }
+
 }

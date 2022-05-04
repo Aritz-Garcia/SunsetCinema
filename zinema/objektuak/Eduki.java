@@ -53,5 +53,11 @@ public class Eduki {
         }
         return false;
     }
+
+	public String toString() {
+		return "Id: " + this.id + "\n" +
+				"Izenburua: " + this.titulua + "\n" +
+				"Iraupena: " + this.iraupena;
+	}
     
 }

@@ -12,4 +12,8 @@ public class LargoMe extends Eduki{
     public String getCSV() {
         return super.getCSV() + ";";
     }
+
+    public String toString() {
+        return super.toString();
+    }
 }
