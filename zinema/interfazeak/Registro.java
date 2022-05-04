@@ -18,6 +18,7 @@ import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.awt.Font;
@@ -25,7 +26,6 @@ import javax.swing.Box;
 import java.awt.Component;
 import java.awt.Dimension;
 import javax.swing.JTextField;
-import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.JPasswordField;
 import javax.swing.JButton;
@@ -280,6 +280,11 @@ public class Registro {
 				} else {
 					if(SunsetCinema.getNireSunsetCinema().erregistratu(izena, abizena1, abizena2, jaiotzeData, login, pasahitza, enpresaKargua)){
 						JOptionPane.showMessageDialog(null, "Erregistroa ondo egin da");
+						try {
+							SunsetCinema.getNireSunsetCinema().meterDatosLangilea();
+						} catch (IOException e1) {
+							e1.printStackTrace();
+						}
 						frame.setVisible(false);
 						Login.main(null);
 					}else {

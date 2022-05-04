@@ -1,8 +1,6 @@
 package objektuak;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -223,5 +221,19 @@ public class SunsetCinema {
 				break;
 		}
 		return astea[i].infoEdukia(edukia);
+	}
+	
+	public void meterDatosLangilea() throws IOException{
+			
+			Langilea lang = new Langilea();
+			try (FileWriter csvWriter = new FileWriter(PATH_MAP.get("Langileak"))) {
+				for (int i=0; i<this.langileak.size(); i++) {
+			        lang = this.langileak.get(i);
+			        csvWriter.append(lang.getCSV());
+			        csvWriter.append("\n");
+		        }
+	        } catch (FileNotFoundException e) {
+	            System.out.println(e.getMessage());
+	        }
 	}
 }
