@@ -37,6 +37,6 @@ public class Langilea{
 	}
 
 	public CharSequence getCSV() {
-		return this.login + ";" + this.pass + ";" + this.izena + ";" + this.abizena1 + ";" + this.abizena2 + ";" + this.jaiotzeData + ";" + this.enpresaKargua + ";";
+		return this.login + ";" + this.pass + ";" + this.izena + ";" + this.abizena1 + ";" + this.abizena2 + ";" + this.jaiotzeData + ";" + this.enpresaKargua;
 	}
 }
