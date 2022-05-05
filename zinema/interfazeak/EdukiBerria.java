@@ -152,8 +152,6 @@ public class EdukiBerria extends JFrame {
 		contentPane.add(iraupena, gbc_iraupena);
 		iraupena.setColumns(10);
 
-		String[] pegi = { "A", "7", "12", "15", "18", "X" };
-
 		panelLab = new JPanel();
 		GridBagConstraints gbc_panelLab = new GridBagConstraints();
 		gbc_panelLab.gridwidth = 2;
