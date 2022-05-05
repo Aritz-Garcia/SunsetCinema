@@ -236,4 +236,16 @@ public class SunsetCinema {
 	            System.out.println(e.getMessage());
 	        }
 	}
+	
+	public boolean gehituLarb(int id, String tit, int iraupen, String fabula) {
+		return edukiak.sortuLarb(id, tit, iraupen, fabula);
+	}
+
+	public boolean gehituDoku(int id, String tit, int iraupen, String tema, String produktorea) {
+		return edukiak.sortuDoc(id, tit, iraupen, tema, produktorea);
+	}
+
+	public boolean gehituPelik(int id, String tit, int iraupen, String generoa, Pegi pegi) {
+		return edukiak.sortuPelik(id, tit, iraupen, generoa, pegi);
+	}
 }

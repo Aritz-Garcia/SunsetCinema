@@ -6,8 +6,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import objektuak.Eduki;
+import objektuak.EdukiZerrenda;
+import objektuak.Pegi;
+import objektuak.SunsetCinema;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.GridBagConstraints;
 import javax.swing.JTextField;
 import java.awt.Insets;
@@ -50,6 +57,7 @@ public class EdukiBerria extends JFrame {
 	private Component rigidArea;
 	private List<JTextField> fieldList = new ArrayList<JTextField>();
 	private String zein = "";
+	private JComboBox pegiBox;
 
 	/**
 	 * Launch the application.
@@ -217,7 +225,7 @@ public class EdukiBerria extends JFrame {
 		gbc_lblNewLabel_5.gridy = 1;
 		panelPel.add(lblNewLabel_5, gbc_lblNewLabel_5);
 
-		JComboBox pegiBox = new JComboBox(pegi);
+		pegiBox = new JComboBox(Pegi.values());
 		GridBagConstraints gbc_pegiBox = new GridBagConstraints();
 		gbc_pegiBox.anchor = GridBagConstraints.WEST;
 		gbc_pegiBox.gridx = 1;
@@ -364,13 +372,44 @@ public class EdukiBerria extends JFrame {
 		if(botoiak.getSelection() == null) return;
 		switch(zein.toLowerCase()) {
 			case "lab":
-				//TODO LaburMetraia sortu
+				if(SunsetCinema.getNireSunsetCinema().gehituLarb(Integer.parseInt(id.getText()), titulua.getText(), Integer.parseInt(iraupena.getText()), fabula.getText())){
+					JOptionPane.showMessageDialog(null, "Edukia ondo sortu da");
+					
+					/*try {
+						SunsetCinema.getNireSunsetCinema().meterDatosLangilea();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}*/
+				}else {
+					JOptionPane.showMessageDialog(null, "Edukia existitzen da");
+				}	
+			
 				break;
 			case "pel":
-				//TODO Pelikula sortu
+				if(SunsetCinema.getNireSunsetCinema().gehituPelik(Integer.parseInt(id.getText()), titulua.getText(), Integer.parseInt(iraupena.getText()), generoa.getText(), (Pegi) pegiBox.getSelectedItem())){
+					JOptionPane.showMessageDialog(null, "Edukia ondo sortu da");
+					
+					/*try {
+						SunsetCinema.getNireSunsetCinema().meterDatosLangilea();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}*/
+				}else {
+					JOptionPane.showMessageDialog(null, "Edukia existitzen da");
+				}	
 				break;
 			case "doc":
-				//TODO Dokumentala sortu
+				if(SunsetCinema.getNireSunsetCinema().gehituDoku(Integer.parseInt(id.getText()), titulua.getText(), Integer.parseInt(iraupena.getText()), tema.getText(), produktorea.getText())){
+					JOptionPane.showMessageDialog(null, "Edukia ondo sortu da");
+					
+					/*try {
+						SunsetCinema.getNireSunsetCinema().meterDatosLangilea();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}*/
+				}else {
+					JOptionPane.showMessageDialog(null, "Edukia existitzen da");
+				}	
 				break;
 		}
 		

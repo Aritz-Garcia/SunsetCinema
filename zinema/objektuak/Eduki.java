@@ -54,10 +54,14 @@ public class Eduki {
         return false;
     }
 
-	public String toString() {
+	public boolean konpId(int id){
+		return this.id==id;
+	}
+    
+    public String toString() {
 		return "Id: " + this.id + "\n" +
 				"Izenburua: " + this.titulua + "\n" +
 				"Iraupena: " + this.iraupena;
-	}
+	} 
     
 }

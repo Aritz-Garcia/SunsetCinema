@@ -85,5 +85,38 @@ public class EdukiZerrenda {
 	public Eduki getEdukia(int i) {
 		return edukiak.get(i);
 	}
+
+    public boolean edukiaIdKonp(int id1) {
+		for (Eduki edukia : edukiak) {
+			if (edukia.konpId(id1)) {
+				return true;
+			}
+		}
+		return false;
+    }
     
+    public boolean sortuLarb(int id, String tit, int iraupen, String fabul) {
+        if (edukiaIdKonp(id)) {
+			return false;
+		}
+		LaburMe laburMe = new LaburMe(id, tit, iraupen, fabul);
+		edukiak.add(laburMe);
+		return true;
+    }
+    
+    public boolean sortuDoc(int id, String tit, int iraupen, String tema, String produktorea) {
+		if (edukiaIdKonp(id))
+			return false;
+		Dokumentala doku = new Dokumentala(id, tit, iraupen, tema, produktorea);
+		edukiak.add(doku);
+		return true;
+	}
+
+    public boolean sortuPelik(int id, String tit, int iraupen, String generoa, Pegi pegi) {
+        if (edukiaIdKonp(id))
+			return false;
+		Pelikula pelik = new Pelikula(id, tit, iraupen, generoa, pegi);
+		edukiak.add(pelik);
+		return true;
+    }
 }
