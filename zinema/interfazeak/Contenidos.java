@@ -22,9 +22,6 @@ import java.awt.Dimension;
 import javax.swing.JComboBox;
 import javax.swing.JButton;
 import java.awt.Color;
-import java.awt.Point;
-import java.awt.Rectangle;
-import java.awt.ComponentOrientation;
 
 public class Contenidos {
 
