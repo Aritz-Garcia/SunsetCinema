@@ -248,4 +248,12 @@ public class SunsetCinema {
 	public boolean gehituPelik(int id, String tit, int iraupen, String generoa, Pegi pegi) {
 		return edukiak.sortuPelik(id, tit, iraupen, generoa, pegi);
 	}
+
+	public ArrayList<String> edukienIzena() {
+		return edukiak.edukienIzena();
+	}
+
+	public ArrayList<String> edukiakGehituta(ArrayList<String> edukiakEdit) {
+        return edukiak.edukiakGehituta(edukiakEdit);
+    }
 }

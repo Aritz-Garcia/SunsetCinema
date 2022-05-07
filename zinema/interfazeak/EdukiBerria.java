@@ -5,9 +5,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-
-import objektuak.Eduki;
-import objektuak.EdukiZerrenda;
 import objektuak.Pegi;
 import objektuak.SunsetCinema;
 
@@ -386,7 +383,7 @@ public class EdukiBerria extends JFrame {
 			case "pel":
 				if(SunsetCinema.getNireSunsetCinema().gehituPelik(Integer.parseInt(id.getText()), titulua.getText(), Integer.parseInt(iraupena.getText()), generoa.getText(), (Pegi) pegiBox.getSelectedItem())){
 					JOptionPane.showMessageDialog(null, "Edukia ondo sortu da");
-					
+
 					/*try {
 						SunsetCinema.getNireSunsetCinema().meterDatosLangilea();
 					} catch (IOException e1) {

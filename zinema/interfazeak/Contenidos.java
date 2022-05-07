@@ -17,6 +17,8 @@ import javax.swing.Box;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.ImageIcon;
 
+import objektuak.SunsetCinema;
+
 import java.awt.Component;
 import java.awt.Dimension;
 import javax.swing.JComboBox;
@@ -55,7 +57,7 @@ public class Contenidos {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 576, 332);
+		frame.setBounds(100, 100, 800, 332);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(new BorderLayout(0, 0));
 		
@@ -82,12 +84,7 @@ public class Contenidos {
 		gbc_lblRegistro.gridy = 1;
 		panel.add(lblRegistro, gbc_lblRegistro);
 		
-		ArrayList<String> ArrayPelikulak = new ArrayList<>();
-		ArrayPelikulak.add("Peli1");
-		ArrayPelikulak.add("Peli2");
-		ArrayPelikulak.add("Peli3");
-		ArrayPelikulak.add("Peli4");
-		ArrayPelikulak.add("Peli5");
+		ArrayList<String> ArrayPelikulak = SunsetCinema.getNireSunsetCinema().edukienIzena();
 		
 		JButton btnBueltatu = new JButton("Bueltatu Egun Aukeraketara");
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
@@ -118,7 +115,7 @@ public class Contenidos {
 		
 		Component rigidArea = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox.add(rigidArea);
-		JComboBox comboBoxPelikulak = new JComboBox(ArrayPelikulak.toArray());
+		JComboBox<String> comboBoxPelikulak = new JComboBox(ArrayPelikulak.toArray());
 		horizontalBox.add(comboBoxPelikulak);
 		
 		JButton btnEdukiaEditatu = new JButton("Edukia Editatu");

@@ -6,6 +6,7 @@ import java.util.ArrayList;
 public class EdukiZerrenda {
 
     private ArrayList<Eduki> edukiak;
+    private ArrayList<Eduki> edukiak2;
 
     public EdukiZerrenda() {
         this.edukiak = new ArrayList<Eduki>();
@@ -118,5 +119,24 @@ public class EdukiZerrenda {
 		Pelikula pelik = new Pelikula(id, tit, iraupen, generoa, pegi);
 		edukiak.add(pelik);
 		return true;
+    }
+
+    public ArrayList<String> edukienIzena() {
+        ArrayList<String> erantzuna = new ArrayList<>();
+        Eduki eduki = new Eduki();
+        for (int i=0; i<this.edukiak.size(); i++) {
+            eduki = this.edukiak.get(i);
+            erantzuna.add(eduki.getTitulua());
+        }
+        return erantzuna;
+    }
+    
+    public ArrayList<String> edukiakGehituta(ArrayList<String> edukiakEdit) {
+        Eduki eduki = new Eduki();
+        for (int i=0; i<this.edukiak2.size(); i++) {
+            eduki = this.edukiak2.get(i);
+            edukiakEdit.add(eduki.getTitulua());
+        }
+        return edukiakEdit;
     }
 }
