@@ -248,6 +248,13 @@ public class Contenidos {
 				}
 			}
 		});
+
+		btnConfirmar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+            	Confirmacion.main(null);
+			}
+		});
 		
 	}
 

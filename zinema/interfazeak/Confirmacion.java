@@ -6,11 +6,15 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import javax.swing.border.EmptyBorder;
+
+import objektuak.SunsetCinema;
+
 import java.awt.GridBagLayout;
 import javax.swing.JLabel;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.awt.event.*;
+import java.io.IOException;
 import java.awt.Font;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
@@ -99,6 +103,11 @@ public class Confirmacion {
 		panel.add(btnVLogin, gbc_btnVLogin);
 		btnVLogin.addActionListener(new ActionListener(){  
             public void actionPerformed(ActionEvent e){
+				try {
+					SunsetCinema.getNireSunsetCinema().edukiakCSV();
+				} catch (IOException e1) {
+					e1.printStackTrace();
+				}
             	frame.setVisible(false);
             	Ongietorria.main(null);
             }

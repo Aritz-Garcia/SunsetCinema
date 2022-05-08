@@ -75,7 +75,6 @@ public class SunsetCinema {
 							Integer.parseInt(info[1]),
 							info[2],
 							Integer.parseInt(info[3]),
-							info[0],
 							info[4]));
 					break;
 				case "pelikula":
@@ -83,7 +82,6 @@ public class SunsetCinema {
 							Integer.parseInt(info[1]),
 							info[2],
 							Integer.parseInt(info[3]),
-							info[0],
 							info[5],
 							Pegi.valueOf(info[6])));
 					break;
@@ -92,9 +90,8 @@ public class SunsetCinema {
 							Integer.parseInt(info[1]),
 							info[2],
 							Integer.parseInt(info[3]),
-							info[0],
-							info[4],
-							info[5]));
+							info[7],
+							info[8]));
 					break;
 
 				default:
@@ -261,77 +258,16 @@ public class SunsetCinema {
     }
 
 	public void edukiakCSV() throws IOException{
-			
-		LaburMe larbume = new LaburMe();
-		Dokumentala doku = new Dokumentala();
-		Pelikula pelik = new Pelikula();
-
+		Eduki eduk = new Eduki();
 		try (FileWriter csvWriter = new FileWriter(PATH_MAP.get("Edukiak"))) {
 			for (int i=0; i<this.edukiak.contar(); i++) {
-				switch (edukiak.getMota(i)) {
-					case "laburmetraia":
-						larbume=edukiak.getDatuakLabur(i);
-						csvWriter.append(larbume.getCSV());
-			        	csvWriter.append("\n");
-						break;
-					case "pelikula":
-						pelik=edukiak.getDatuakPelik(i);
-						csvWriter.append(pelik.getCSV());
-						csvWriter.append("\n");
-						break;
-					case "dokumentala":
-						doku=edukiak.getDatuakDoku(i);
-						csvWriter.append(doku.getCSV());
-						csvWriter.append("\n");
-						break;
-
-					default:
-						break;
-				}
-				}
-				//lang = this.langileak.get(i);
-				//csvWriter.append(lang.getCSV());
-				//csvWriter.append("\n");
+				eduk=edukiak.getDatuak(i);
+				csvWriter.append(eduk.getCSV());
+				csvWriter.append("\n");
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
-	/*public EdukiZerrenda irakurriEdukiak2(String path) {
-		ArrayList<String> edukiak = irakurri(path);
-		EdukiZerrenda edukiZerrenda = new EdukiZerrenda();
-		for (String edukia : edukiak) {
-			String[] info = edukia.split(";");
-			switch (info[0].toLowerCase()) {
-				case "laburmetraia":
-				edukiZerrenda.gehitu(new LaburMe(
-							Integer.parseInt(info[1]),
-							info[2],
-							Integer.parseInt(info[3]),
-							info[4]));
-					break;
-				case "pelikula":
-				edukiZerrenda.gehitu(new Pelikula(
-							Integer.parseInt(info[1]),
-							info[2],
-							Integer.parseInt(info[3]),
-							info[5],
-							Pegi.valueOf(info[6])));
-					break;
-				case "dokumentala":
-				edukiZerrenda.gehitu(new Dokumentala(
-							Integer.parseInt(info[1]),
-							info[2],
-							Integer.parseInt(info[3]),
-							info[4],
-							info[5]));
-					break;
-
-				default:
-					break;
-			}
-		}
-		return edukiZerrenda;
-	}*/
 }

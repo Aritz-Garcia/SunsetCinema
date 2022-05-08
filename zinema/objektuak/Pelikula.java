@@ -7,8 +7,8 @@ public class Pelikula extends LargoMe{
     public Pelikula() {
     }
 
-    public Pelikula(int id, String titulua, int iraupena, String mota, String generoa, Pegi pegi) {
-        super(id, titulua, iraupena, mota);
+    public Pelikula(int id, String titulua, int iraupena, String generoa, Pegi pegi) {
+        super(id, titulua, iraupena);
         this.generoa = generoa;
         this.pegi = pegi;
     }
@@ -30,7 +30,7 @@ public class Pelikula extends LargoMe{
     }
 
     public String getCSV() {
-        return super.getCSV() + ";;" + this.generoa + ";" + this.pegi + ";;";
+        return "Pelikula;" + super.getCSV() + ";" + this.generoa + ";" + this.pegi + ";;";
     }
 
     public boolean gehituDaiteke() {

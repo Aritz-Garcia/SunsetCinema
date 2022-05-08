@@ -103,8 +103,7 @@ public class EdukiZerrenda {
         if (edukiaIdKonp(id)) {
 			return false;
 		}
-        String mota="LaburMetraia";
-		LaburMe laburMe = new LaburMe(id, tit, iraupen, mota, fabul);
+		LaburMe laburMe = new LaburMe(id, tit, iraupen, fabul);
 		edukiak.add(laburMe);
         //edukiak2.add(laburMe);
 		return true;
@@ -113,8 +112,7 @@ public class EdukiZerrenda {
     public boolean sortuDoc(int id, String tit, int iraupen, String tema, String produktorea) {
 		if (edukiaIdKonp(id))
 			return false;
-        String mota="Dokumentala";
-		Dokumentala doku = new Dokumentala(id, tit, iraupen, mota, tema, produktorea);
+		Dokumentala doku = new Dokumentala(id, tit, iraupen, tema, produktorea);
 		edukiak.add(doku);
         //edukiak2.add(doku);
 		return true;
@@ -123,8 +121,7 @@ public class EdukiZerrenda {
     public boolean sortuPelik(int id, String tit, int iraupen, String generoa, Pegi pegi) {
         if (edukiaIdKonp(id))
 			return false;
-        String mota = "Pelikula";
-		Pelikula pelik = new Pelikula(id, tit, iraupen, mota, generoa, pegi);
+		Pelikula pelik = new Pelikula(id, tit, iraupen, generoa, pegi);
 		edukiak.add(pelik);
         //edukiak2.add(pelik);
 		return true;
@@ -149,37 +146,11 @@ public class EdukiZerrenda {
         return edukiakEdit;
     }
 
-    /*public ArrayList<String> meterDatosLangilea() throws IOException{
-			
-        Langilea lang = new Langilea();
-        try (FileWriter csvWriter = new FileWriter(PATH_MAP.get("Langileak"))) {
-            for (int i=0; i<this.langileak.size(); i++) {
-                lang = this.langileak.get(i);
-                csvWriter.append(lang.getCSV());
-                csvWriter.append("\n");
-            }
-        } catch (FileNotFoundException e) {
-            System.out.println(e.getMessage());
-        }
-    }*/
-
     public int contar() {
         return this.edukiak.size();
     }
 
-    public String getMota(int i) {
-        return edukiak.get(i).getMota();
-    }
-
-    public Eduki getDatuakLabur(int i) {
-        return edukiak.get(i);
-    }
-
-    public Pelikula getDatuakPelik(int i) {
-        return edukiak.get(i);
-    }
-
-    public Dokumentala getDatuakDoku(int i) {
+    public Eduki getDatuak(int i) {
         return edukiak.get(i);
     }
 }
