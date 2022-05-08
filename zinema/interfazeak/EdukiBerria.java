@@ -369,7 +369,7 @@ public class EdukiBerria extends JFrame {
 			case "lab":
 				if(SunsetCinema.getNireSunsetCinema().gehituLarb(Integer.parseInt(id.getText()), titulua.getText(), Integer.parseInt(iraupena.getText()), fabula.getText())){
 					JOptionPane.showMessageDialog(null, "Edukia ondo sortu da");
-					
+
 					/*try {
 						SunsetCinema.getNireSunsetCinema().meterDatosLangilea();
 					} catch (IOException e1) {

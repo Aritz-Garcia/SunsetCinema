@@ -28,6 +28,8 @@ import java.awt.Color;
 public class Contenidos {
 
 	private JFrame frame;
+	private ArrayList<String> ArrayPelikulak;
+	private JComboBox comboBoxPelikulak;
 
 	/**
 	 * Launch the application.
@@ -84,7 +86,7 @@ public class Contenidos {
 		gbc_lblRegistro.gridy = 1;
 		panel.add(lblRegistro, gbc_lblRegistro);
 		
-		ArrayList<String> ArrayPelikulak = SunsetCinema.getNireSunsetCinema().edukienIzena();
+		ArrayPelikulak = SunsetCinema.getNireSunsetCinema().edukienIzena();
 		
 		JButton btnBueltatu = new JButton("Bueltatu Egun Aukeraketara");
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
@@ -115,7 +117,7 @@ public class Contenidos {
 		
 		Component rigidArea = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox.add(rigidArea);
-		JComboBox<String> comboBoxPelikulak = new JComboBox(ArrayPelikulak.toArray());
+		comboBoxPelikulak = new JComboBox(ArrayPelikulak.toArray());
 		horizontalBox.add(comboBoxPelikulak);
 		
 		JButton btnEdukiaEditatu = new JButton("Edukia Editatu");
@@ -247,6 +249,11 @@ public class Contenidos {
 			}
 		});
 		
+	}
+
+	public void prueba(ArrayList<String> bArrayList) {
+		ArrayPelikulak = bArrayList;
+		comboBoxPelikulak.setModel(new DefaultComboBoxModel(ArrayPelikulak.toArray()));
 	}
 
 }

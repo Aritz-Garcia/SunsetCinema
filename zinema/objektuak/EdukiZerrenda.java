@@ -102,6 +102,7 @@ public class EdukiZerrenda {
 		}
 		LaburMe laburMe = new LaburMe(id, tit, iraupen, fabul);
 		edukiak.add(laburMe);
+        edukiak2.add(laburMe);
 		return true;
     }
     
@@ -110,6 +111,7 @@ public class EdukiZerrenda {
 			return false;
 		Dokumentala doku = new Dokumentala(id, tit, iraupen, tema, produktorea);
 		edukiak.add(doku);
+        edukiak2.add(doku);
 		return true;
 	}
 
@@ -118,6 +120,7 @@ public class EdukiZerrenda {
 			return false;
 		Pelikula pelik = new Pelikula(id, tit, iraupen, generoa, pegi);
 		edukiak.add(pelik);
+        edukiak2.add(pelik);
 		return true;
     }
 
