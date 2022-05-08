@@ -1,5 +1,8 @@
 package objektuak;
 
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
@@ -100,27 +103,30 @@ public class EdukiZerrenda {
         if (edukiaIdKonp(id)) {
 			return false;
 		}
-		LaburMe laburMe = new LaburMe(id, tit, iraupen, fabul);
+        String mota="LaburMetraia";
+		LaburMe laburMe = new LaburMe(id, tit, iraupen, mota, fabul);
 		edukiak.add(laburMe);
-        edukiak2.add(laburMe);
+        //edukiak2.add(laburMe);
 		return true;
     }
     
     public boolean sortuDoc(int id, String tit, int iraupen, String tema, String produktorea) {
 		if (edukiaIdKonp(id))
 			return false;
-		Dokumentala doku = new Dokumentala(id, tit, iraupen, tema, produktorea);
+        String mota="Dokumentala";
+		Dokumentala doku = new Dokumentala(id, tit, iraupen, mota, tema, produktorea);
 		edukiak.add(doku);
-        edukiak2.add(doku);
+        //edukiak2.add(doku);
 		return true;
 	}
 
     public boolean sortuPelik(int id, String tit, int iraupen, String generoa, Pegi pegi) {
         if (edukiaIdKonp(id))
 			return false;
-		Pelikula pelik = new Pelikula(id, tit, iraupen, generoa, pegi);
+        String mota = "Pelikula";
+		Pelikula pelik = new Pelikula(id, tit, iraupen, mota, generoa, pegi);
 		edukiak.add(pelik);
-        edukiak2.add(pelik);
+        //edukiak2.add(pelik);
 		return true;
     }
 
@@ -141,5 +147,39 @@ public class EdukiZerrenda {
             edukiakEdit.add(eduki.getTitulua());
         }
         return edukiakEdit;
+    }
+
+    /*public ArrayList<String> meterDatosLangilea() throws IOException{
+			
+        Langilea lang = new Langilea();
+        try (FileWriter csvWriter = new FileWriter(PATH_MAP.get("Langileak"))) {
+            for (int i=0; i<this.langileak.size(); i++) {
+                lang = this.langileak.get(i);
+                csvWriter.append(lang.getCSV());
+                csvWriter.append("\n");
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println(e.getMessage());
+        }
+    }*/
+
+    public int contar() {
+        return this.edukiak.size();
+    }
+
+    public String getMota(int i) {
+        return edukiak.get(i).getMota();
+    }
+
+    public Eduki getDatuakLabur(int i) {
+        return edukiak.get(i);
+    }
+
+    public Pelikula getDatuakPelik(int i) {
+        return edukiak.get(i);
+    }
+
+    public Dokumentala getDatuakDoku(int i) {
+        return edukiak.get(i);
     }
 }

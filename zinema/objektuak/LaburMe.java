@@ -6,8 +6,8 @@ public class LaburMe extends Eduki{
     public LaburMe() {
     }
 
-    public LaburMe(int id, String titulua, int iraupena, String fabula) {
-        super(id, titulua, iraupena);
+    public LaburMe(int id, String titulua, int iraupena, String mota, String fabula) {
+        super(id, titulua, iraupena, mota);
         this.fabula = fabula;
     }
 
@@ -20,7 +20,7 @@ public class LaburMe extends Eduki{
     }
 
     public String getCSV() {
-        return "LaburMetraia" + super.getCSV() + ";" + this.fabula;      
+        return super.getCSV() + ";" + this.fabula + ";;;;";      
     }
     
     public String toString() {

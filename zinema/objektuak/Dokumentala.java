@@ -7,8 +7,8 @@ public class Dokumentala extends LargoMe {
     public Dokumentala() {
     }
 
-    public Dokumentala(int id, String titulua, int iraupena, String tema, String produktorea) {
-        super(id, titulua, iraupena);
+    public Dokumentala(int id, String titulua, int iraupena, String mota, String tema, String produktorea) {
+        super(id, titulua, iraupena, mota);
         this.tema = tema;
         this.produktorea = produktorea;
     }
@@ -30,7 +30,7 @@ public class Dokumentala extends LargoMe {
     }
 
     public String getCSV() {
-        return "Dokumentala;" + super.getCSV() + ";;;" + this.tema + ";" + this.produktorea;
+        return super.getCSV() + ";;;;" + this.tema + ";" + this.produktorea;
     }
     
     public String toString() {
