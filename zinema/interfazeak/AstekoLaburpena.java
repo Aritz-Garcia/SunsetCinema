@@ -23,7 +23,7 @@ import java.awt.Component;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
-public class Resumen_Semana {
+public class AstekoLaburpena {
 
 	private JFrame frame;
 	private JTable tableLun;
@@ -41,7 +41,7 @@ public class Resumen_Semana {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Resumen_Semana window = new Resumen_Semana();
+					AstekoLaburpena window = new AstekoLaburpena();
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -53,7 +53,7 @@ public class Resumen_Semana {
 	/**
 	 * Create the application.
 	 */
-	public Resumen_Semana() {
+	public AstekoLaburpena() {
 		initialize();
 	}
 
@@ -83,7 +83,7 @@ public class Resumen_Semana {
 		String titulos[] = {"Izenburua", "Hasierako ordua", "Amaierako ordua"};
 		String infoLun[][] = sc.infoEguna(AstekoEguna.ASTELEHENA);
 		
-		JLabel lblResumenDia = new JLabel("RESUMEN DE SEMANA");
+		JLabel lblResumenDia = new JLabel("Asteko Laburpena");
 		lblResumenDia.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblResumenDia.setAlignmentX(0.5f);
 		GridBagConstraints gbc_lblResumenDia = new GridBagConstraints();
@@ -274,5 +274,9 @@ public class Resumen_Semana {
             	EgunaAukeratu.main(null);
             }
 		});
+	}
+
+	private void setEdukiInfo(AstekoEguna eguna, int edukia) {
+		String infoLun = SunsetCinema.getNireSunsetCinema().infoEgunEdukia(edukia, eguna);
 	}
 }

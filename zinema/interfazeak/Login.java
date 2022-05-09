@@ -15,6 +15,7 @@ import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -173,7 +174,7 @@ public class Login {
 	}
 
 	private void setErrorea(String errorea) {
-		// TODO Auto-generated method stub
+		JOptionPane.showMessageDialog(frame, errorea, "Errorea", JOptionPane.ERROR_MESSAGE);
 
 	}
 

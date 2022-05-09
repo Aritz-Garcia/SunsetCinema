@@ -27,15 +27,15 @@ public class SunsetCinema {
 		PATH_MAP = new HashMap<String, String>();
 		this.edukiak = new EdukiZerrenda();
 		this.langileak = new ArrayList<Langilea>();
-		PATH_MAP.put("Edukiak", "./datuak/Edukiak.csv");
-		PATH_MAP.put("Langileak", "./datuak/Langileak.csv");
-		PATH_MAP.put("ASTELEHENA", "./datuak/Astelehena.csv");
-		PATH_MAP.put("ASTEARTEA", "./datuak/Asteartea.csv");
-		PATH_MAP.put("ASTEAZKENA", "./datuak/Asteazkena.csv");
-		PATH_MAP.put("OSTEGUNA", "./datuak/Osteguna.csv");
-		PATH_MAP.put("OSTIRALA", "./datuak/Ostirala.csv");
-		PATH_MAP.put("LARUNBATA", "./datuak/Larunbata.csv");
-		PATH_MAP.put("IGANDEA", "./datuak/Igandea.csv");
+		PATH_MAP.put("Edukiak", "./zinema/datuak/Edukiak.csv");
+		PATH_MAP.put("Langileak", "./zinema/datuak/Langileak.csv");
+		PATH_MAP.put("ASTELEHENA", "./zinema/datuak/Astelehena.csv");
+		PATH_MAP.put("ASTEARTEA", "./zinema/datuak/Asteartea.csv");
+		PATH_MAP.put("ASTEAZKENA", "./zinema/datuak/Asteazkena.csv");
+		PATH_MAP.put("OSTEGUNA", "./zinema/datuak/Osteguna.csv");
+		PATH_MAP.put("OSTIRALA", "./zinema/datuak/Ostirala.csv");
+		PATH_MAP.put("LARUNBATA", "./zinema/datuak/Larunbata.csv");
+		PATH_MAP.put("IGANDEA", "./zinema/datuak/Igandea.csv");
 		
 		kargatuDatuak();
 	}
@@ -173,6 +173,10 @@ public class SunsetCinema {
 	 */
 
 	public String[][] infoEguna(AstekoEguna izeEguna) {
+		return astea[fromAstekoEgunaToIndex(izeEguna)].getLaburpena();
+	}
+
+	private int fromAstekoEgunaToIndex(AstekoEguna izeEguna) {
 		int i = -1;
 		switch (izeEguna) {
 			case ASTELEHENA:
@@ -197,35 +201,11 @@ public class SunsetCinema {
 				i = 6;
 				break;
 		}
-		return astea[i].getLaburpena();
+		return i;
 	}
 
 	public String infoEgunEdukia(int edukia, AstekoEguna e) {
-		int i = -1;
-		switch (e) {
-			case ASTELEHENA:
-				i = 0;
-				break;
-			case ASTEARTEA:
-				i = 1;
-				break;
-			case ASTEAZKENA:
-				i = 2;
-				break;
-			case OSTEGUNA:
-				i = 3;
-				break;
-			case OSTIRALA:
-				i = 4;
-				break;
-			case LARUNBATA:
-				i = 5;
-				break;
-			case IGANDEA:
-				i = 6;
-				break;
-		}
-		return astea[i].infoEdukia(edukia);
+		return astea[fromAstekoEgunaToIndex(e)].infoEdukia(edukia);
 	}
 	
 	public void meterDatosLangilea() throws IOException{

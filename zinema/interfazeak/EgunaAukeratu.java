@@ -62,11 +62,6 @@ public class EgunaAukeratu extends JPanel {
 	 * Create the application.
 	 */
 	public EgunaAukeratu() {
-		try {
-			image = ImageIO.read(new File("../imagenes/logoa/logo_gris.png"));
-		} catch (IOException ex) {
-			// handle exception...
-		}
 		initialize();
 	}
 
@@ -220,7 +215,7 @@ public class EgunaAukeratu extends JPanel {
 		verticalBox.add(rigidArea_11);
 
 		JLabel lblNewLabel = new JLabel("");
-		lblNewLabel.setIcon(new ImageIcon(EgunaAukeratu.class.getResource("/zinema/imagenes/logoa/logo_gris.png")));
+		lblNewLabel.setIcon(new ImageIcon(EgunaAukeratu.class.getResource("/imagenes/logoa/logo_gris.png")));
 		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
 		gbc_lblNewLabel.gridheight = 3;
 		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
@@ -268,6 +263,8 @@ public class EgunaAukeratu extends JPanel {
 		});
 		btnAsteko_laburpena.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				AstekoLaburpena.main(null);
 			}
 		});
 
@@ -289,18 +286,15 @@ public class EgunaAukeratu extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if (comboBoxEnpresaKargua.getSelectedIndex() > 0) {
 					btnKartelera.setEnabled(true);
-					if(SunsetCinema.getNireSunsetCinema().infoDauka(comboBoxEnpresaKargua.getSelectedIndex()))
-					verticalBox.setVisible(true);
+					if(SunsetCinema.getNireSunsetCinema().infoDauka(comboBoxEnpresaKargua.getSelectedIndex()-1))
+						verticalBox.setVisible(true);
+
+					else
+						verticalBox.setVisible(false);
 				}
 			}
 		});
 
-	}
-
-	@Override
-	protected void paintComponent(Graphics g) {
-		super.paintComponent(g);
-		g.drawImage(image, 0, 0, this);
 	}
 
 }
