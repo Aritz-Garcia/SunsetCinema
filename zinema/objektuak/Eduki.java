@@ -63,4 +63,8 @@ public class Eduki {
     public CharSequence getCSV() {
 		return this.id + ";" + this.titulua + ";" + this.iraupena;
 	}
+
+    public String getIzenburua() {
+        return this.titulua;
+    }
 }
