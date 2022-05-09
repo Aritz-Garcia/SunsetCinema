@@ -1,8 +1,5 @@
 package objektuak;
 
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 

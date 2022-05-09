@@ -78,4 +78,8 @@ public class Eguna {
 		return edukiak.getEdukia(i).toString();
 	}
 
+    public boolean infoDauka() {
+        return this.edukiak.getIraupenOsoa() > 0;
+    }
+
 }

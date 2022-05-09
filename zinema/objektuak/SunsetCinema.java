@@ -44,6 +44,11 @@ public class SunsetCinema {
 		return sunsetCinema;
 	}
 
+	public boolean infoDauka(int i) {
+		
+		return astea[i].infoDauka();
+	}
+
 	public void idatzi() {
 
 	}
