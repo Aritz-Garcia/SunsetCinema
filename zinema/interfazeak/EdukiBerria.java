@@ -369,12 +369,7 @@ public class EdukiBerria extends JFrame {
 			case "lab":
 				if(SunsetCinema.getNireSunsetCinema().gehituLarb(Integer.parseInt(id.getText()), titulua.getText(), Integer.parseInt(iraupena.getText()), fabula.getText())){
 					JOptionPane.showMessageDialog(null, "Edukia ondo sortu da");
-
-					/*try {
-						SunsetCinema.getNireSunsetCinema().meterDatosLangilea();
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}*/
+					this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 				}else {
 					JOptionPane.showMessageDialog(null, "Edukia existitzen da");
 				}	
@@ -383,12 +378,8 @@ public class EdukiBerria extends JFrame {
 			case "pel":
 				if(SunsetCinema.getNireSunsetCinema().gehituPelik(Integer.parseInt(id.getText()), titulua.getText(), Integer.parseInt(iraupena.getText()), generoa.getText(), (Pegi) pegiBox.getSelectedItem())){
 					JOptionPane.showMessageDialog(null, "Edukia ondo sortu da");
+					this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
 
-					/*try {
-						SunsetCinema.getNireSunsetCinema().meterDatosLangilea();
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}*/
 				}else {
 					JOptionPane.showMessageDialog(null, "Edukia existitzen da");
 				}	
@@ -396,12 +387,8 @@ public class EdukiBerria extends JFrame {
 			case "doc":
 				if(SunsetCinema.getNireSunsetCinema().gehituDoku(Integer.parseInt(id.getText()), titulua.getText(), Integer.parseInt(iraupena.getText()), tema.getText(), produktorea.getText())){
 					JOptionPane.showMessageDialog(null, "Edukia ondo sortu da");
-					
-					/*try {
-						SunsetCinema.getNireSunsetCinema().meterDatosLangilea();
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}*/
+					this.dispatchEvent(new WindowEvent(this, WindowEvent.WINDOW_CLOSING));
+
 				}else {
 					JOptionPane.showMessageDialog(null, "Edukia existitzen da");
 				}	

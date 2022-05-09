@@ -29,6 +29,7 @@ public class Contenidos {
 
 	private JFrame frame;
 	private ArrayList<String> ArrayPelikulak;
+	private ArrayList<String> ArrayPelikulak2;
 	private JComboBox comboBoxPelikulak;
 
 	/**
@@ -87,6 +88,7 @@ public class Contenidos {
 		panel.add(lblRegistro, gbc_lblRegistro);
 		
 		ArrayPelikulak = SunsetCinema.getNireSunsetCinema().edukienIzena();
+		ArrayPelikulak2 = SunsetCinema.getNireSunsetCinema().edukienIzena();;
 		
 		JButton btnBueltatu = new JButton("Bueltatu Egun Aukeraketara");
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
@@ -117,7 +119,7 @@ public class Contenidos {
 		
 		Component rigidArea = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox.add(rigidArea);
-		comboBoxPelikulak = new JComboBox(ArrayPelikulak.toArray());
+		comboBoxPelikulak = new JComboBox(ArrayPelikulak2.toArray());
 		horizontalBox.add(comboBoxPelikulak);
 		
 		JButton btnEdukiaEditatu = new JButton("Edukia Editatu");
@@ -149,9 +151,11 @@ public class Contenidos {
 		btnBorrar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (comboBoxPelikulak.getSelectedIndex() > -1) {
-			        ArrayPelikulak.remove(comboBoxPelikulak.getSelectedIndex());
+					SunsetCinema.getNireSunsetCinema().edukiaKendu(SunsetCinema.getNireSunsetCinema().lortuId(ArrayPelikulak2.get(comboBoxPelikulak.getSelectedIndex())));
+			        ArrayPelikulak2.remove(comboBoxPelikulak.getSelectedIndex());
 			        comboBoxPelikulak.getSelectedIndex();
-			        comboBoxPelikulak.setModel(new DefaultComboBoxModel(ArrayPelikulak.toArray()));
+			        comboBoxPelikulak.setModel(new DefaultComboBoxModel(ArrayPelikulak2.toArray()));
+					
 				}
 			}
 		});
@@ -241,6 +245,7 @@ public class Contenidos {
 		btnCancelar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if (verticalBox.isVisible() || horizontalBox_2.isVisible()) {
+					ArrayPelikulak2=ArrayPelikulak;
 					verticalBox.setVisible(false);
 					horizontalBox_2.setVisible(false);
 					
@@ -251,8 +256,11 @@ public class Contenidos {
 
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				frame.setVisible(false);
-            	Confirmacion.main(null);
+				ArrayPelikulak=ArrayPelikulak2;
+				verticalBox.setVisible(false);
+					horizontalBox_2.setVisible(false);
+					
+					verticalBox_2.setVisible(true);
 			}
 		});
 		

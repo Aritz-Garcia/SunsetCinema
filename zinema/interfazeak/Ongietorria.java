@@ -1,6 +1,8 @@
 package interfazeak;
 
 import java.awt.EventQueue;
+
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -12,6 +14,7 @@ import java.awt.BorderLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.Color;
+import javax.swing.SwingConstants;
 
 public class Ongietorria {
 
@@ -52,7 +55,6 @@ public class Ongietorria {
 		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		frame.getContentPane().add(contentPane, BorderLayout.CENTER);
-		contentPane.setLayout(new BorderLayout(0, 0));
 		
 		contentPane.addMouseListener(new MouseAdapter() {
 			@Override
@@ -61,10 +63,17 @@ public class Ongietorria {
 				Login.main(null);
 			}
 		});
-		
+		contentPane.setLayout(null);
 		JLabel lblEdukiak = new JLabel("Ongietorria izan Sunset Zinemara, zein pelikulak zein prezioak hoberenak diren lekua!");
+		lblEdukiak.setBounds(5, 19, 489, 237);
 		lblEdukiak.setBackground(new Color(240, 240, 240));
-		contentPane.add(lblEdukiak, BorderLayout.CENTER);
+		contentPane.add(lblEdukiak);
+		
+		JLabel lblLogo = new JLabel("");
+		lblLogo.setHorizontalAlignment(SwingConstants.CENTER);
+		lblLogo.setIcon(new ImageIcon(Ongietorria.class.getResource("/imagenes/logoa/logo_pequeno.png")));
+		lblLogo.setBounds(5, 22, 489, 92);
+		contentPane.add(lblLogo);
 	}
 
 	}

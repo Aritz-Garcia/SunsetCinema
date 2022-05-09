@@ -255,4 +255,11 @@ public class SunsetCinema {
 		}
 	}
 
+	public void edukiaKendu(int id) {
+		edukiak.ezabatuById(id);
+	}
+
+	public int lortuId(String titulua) {
+		return edukiak.lortuId(titulua);
+	}
 }
