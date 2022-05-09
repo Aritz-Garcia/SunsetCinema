@@ -23,15 +23,17 @@ public class EdukiZerrenda {
     public void sartuEdukia(Eduki edukia) {
         if (sartuDauiteke(edukia)) {
             edukiak.add(edukia);
+            edukiak2.add(edukia);
         }
     }
 
     public void gehitu(Eduki edukia) {
         edukiak.add(edukia);
+        edukiak2.add(edukia);
     }
 
     private boolean sartuDauiteke(Eduki edukia) {
-        for (Eduki eduki : edukiak) {
+        for (Eduki eduki : edukiak2) {
             if (eduki.generoTituluaKonparatu(edukia)) {
                 return false;
             }
@@ -40,9 +42,9 @@ public class EdukiZerrenda {
     }
 
     public void ezabatuById(int id) {
-        for (Eduki edukia : edukiak) {
+        for (Eduki edukia : edukiak2) {
             if (edukia.getId() == id) {
-                this.edukiak.remove(edukia);
+                this.edukiak2.remove(edukia);
                 break;
             }
         }
@@ -52,7 +54,7 @@ public class EdukiZerrenda {
         int i = 0;
         for (Eduki eduki : edukiak) {
             if (eduki.equals(edukia)) {
-                edukiak.set(i, edukia);
+                edukiak2.set(i, edukia);
                 break;
             }
             i++;
@@ -60,23 +62,23 @@ public class EdukiZerrenda {
     }
 
     public int getAzkenId() {
-        if (edukiak.isEmpty()) {
+        if (edukiak2.isEmpty()) {
             return 0;
         }
-        return edukiak.size() - 1;
+        return edukiak2.size() - 1;
     }
 
     public int getEdukiKop() {
-        return edukiak.size();
+        return edukiak2.size();
     }
 
     public String[][] getLaburpena() {
-        String[][] laburpena = new String[edukiak.size()][3];
+        String[][] laburpena = new String[edukiak2.size()][3];
         LocalTime hasHordua = LocalTime.of(16, 0);
-        for (int i = 0; i < edukiak.size(); i++) {
-            laburpena[i][0] = edukiak.get(i).getTitulua();
+        for (int i = 0; i < edukiak2.size(); i++) {
+            laburpena[i][0] = edukiak2.get(i).getTitulua();
             laburpena[i][1] = hasHordua + ""; //para aser to string si aser to estring
-            hasHordua = hasHordua.plusMinutes(edukiak.get(i).getIraupena());
+            hasHordua = hasHordua.plusMinutes(edukiak2.get(i).getIraupena());
             laburpena[i][2] = hasHordua + ""; // lo mimo
             
         }
@@ -84,11 +86,11 @@ public class EdukiZerrenda {
     }
 
 	public Eduki getEdukia(int i) {
-		return edukiak.get(i);
+		return edukiak2.get(i);
 	}
 
     public boolean edukiaIdKonp(int id1) {
-		for (Eduki edukia : edukiak) {
+		for (Eduki edukia : edukiak2) {
 			if (edukia.konpId(id1)) {
 				return true;
 			}
@@ -101,8 +103,7 @@ public class EdukiZerrenda {
 			return false;
 		}
 		LaburMe laburMe = new LaburMe(id, tit, iraupen, fabul);
-		edukiak.add(laburMe);
-        //edukiak2.add(laburMe);
+		edukiak2.add(laburMe);
 		return true;
     }
     
@@ -110,8 +111,7 @@ public class EdukiZerrenda {
 		if (edukiaIdKonp(id))
 			return false;
 		Dokumentala doku = new Dokumentala(id, tit, iraupen, tema, produktorea);
-		edukiak.add(doku);
-        //edukiak2.add(doku);
+		edukiak2.add(doku);
 		return true;
 	}
 
@@ -119,15 +119,14 @@ public class EdukiZerrenda {
         if (edukiaIdKonp(id))
 			return false;
 		Pelikula pelik = new Pelikula(id, tit, iraupen, generoa, pegi);
-		edukiak.add(pelik);
-        //edukiak2.add(pelik);
+		edukiak2.add(pelik);
 		return true;
     }
 
     public ArrayList<String> edukienIzena() {
         ArrayList<String> erantzuna = new ArrayList<>();
         Eduki eduki = new Eduki();
-        for (int i=0; i<this.edukiak.size(); i++) {
+        for (int i=0; i<this.edukiak2.size(); i++) {
             eduki = this.edukiak.get(i);
             erantzuna.add(eduki.getTitulua());
         }
@@ -144,10 +143,20 @@ public class EdukiZerrenda {
     }
 
     public int contar() {
-        return this.edukiak.size();
+        return this.edukiak2.size();
     }
 
     public Eduki getDatuak(int i) {
-        return edukiak.get(i);
+        return edukiak2.get(i);
+    }
+
+    public int lortuId(String titulua) {
+        int z=-1;
+        for (int i=0; i<edukiak2.size(); i++) {
+            if (edukiak2.get(i).getTitulua()==titulua) {
+                return edukiak2.get(i).getId();
+            }
+        }
+        return z;
     }
 }
