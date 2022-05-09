@@ -10,6 +10,7 @@ public class EdukiZerrenda {
 
     public EdukiZerrenda() {
         this.edukiak = new ArrayList<Eduki>();
+        this.edukiak2 = new ArrayList<Eduki>();
     }
 
     public int getIraupenOsoa() {
