@@ -128,7 +128,7 @@ public class EdukiZerrenda {
         ArrayList<String> erantzuna = new ArrayList<>();
         Eduki eduki = new Eduki();
         for (int i=0; i<this.edukiak2.size(); i++) {
-            eduki = this.edukiak.get(i);
+            eduki = this.edukiak2.get(i);
             erantzuna.add(eduki.getTitulua());
         }
         return erantzuna;
