@@ -16,6 +16,7 @@ import java.awt.GridBagConstraints;
 import javax.swing.JTextField;
 import java.awt.Insets;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -106,6 +107,8 @@ public class EdukiBerria extends JFrame {
 		contentPane.add(lblNewLabel, gbc_lblNewLabel);
 
 		id = new JTextField();
+		id.setText(SunsetCinema.getNireSunsetCinema().getAzkenId() + 1 + "");
+		id.setEditable(false);
 
 		GridBagConstraints gbc_id = new GridBagConstraints();
 		gbc_id.insets = new Insets(0, 0, 5, 5);
@@ -397,9 +400,33 @@ public class EdukiBerria extends JFrame {
 		
 	}
 
-	private void ezabatu() {
-		for(JTextField field :fieldList) {
-			field.setText("");
+	private void balidatu() {
+		if(id.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Id-aren eremua bete behar da");
+		}else if (titulua.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Izenburuaren eremua bete behar da");
+		} else if(iraupena.getText().isEmpty()) {
+			JOptionPane.showMessageDialog(null, "Iraupena-ren eremua bete behar da");
+		} else if(zein.equals("Lab")) {
+			if(fabula.getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Fabularen eremua bete behar da");
+			}else {
+				sortu();
+			}
+		} else if(zein.equals("Pel")) {
+			if(pegiBox.getSelectedIndex() < 0) {
+				JOptionPane.showMessageDialog(null, "PEGI-aren eremua aukeratu behar da");
+			} else if(generoa.getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Generoaren eremua bete behar da");
+			} else {
+				sortu();
+			}
+		} else if(zein.equals("Dok")) {
+			if(produktorea.getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Produktorearen eremua bete behar da");
+			} else if(tema.getText().isEmpty()) {
+				JOptionPane.showMessageDialog(null, "Temaren eremua bete behar da");
+			}
 		}
 	}
 

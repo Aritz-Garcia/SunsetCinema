@@ -313,4 +313,8 @@ public class SunsetCinema {
 		this.edukiak = irakurriEdukiak(PATH_MAP.get("Edukiak"));
     }
 
+	public int getAzkenId() {
+		return edukiak.getAzkenId();
+	}
+
 }
