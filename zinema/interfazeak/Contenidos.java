@@ -9,6 +9,7 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.util.ArrayList;
 
 import javax.swing.Box;
@@ -220,6 +221,7 @@ public class Contenidos {
 			public void actionPerformed(ActionEvent e) {
 				Eduki edukia = posibleak.getEdukia(tablePosibleak.getSelectedRow());
 				posibleak.ezabatuById(edukia.getId());
+				SunsetCinema.getNireSunsetCinema().edukiaKendu(edukia.getId());
 				refresh(eguna);
 			}
 		});
@@ -284,6 +286,12 @@ public class Contenidos {
 
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				try {
+					SunsetCinema.getNireSunsetCinema().edukiakCSV();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
 				refresh(eguna);
 			}
 		});
