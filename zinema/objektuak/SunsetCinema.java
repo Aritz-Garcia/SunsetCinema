@@ -80,7 +80,7 @@ public class SunsetCinema {
 		}
 	}
 
-	public EdukiZerrenda irakurriEdukiak(String path) {
+	private EdukiZerrenda irakurriEdukiak(String path) {
 		ArrayList<String> edukiak = irakurri(path);
 		EdukiZerrenda edukiZerrenda = new EdukiZerrenda();
 		for (String edukia : edukiak) {
@@ -145,7 +145,7 @@ public class SunsetCinema {
 		return info;
 	}
 
-    private void kargatuDatuak() {
+    public void kargatuDatuak() {
 		this.edukiak = irakurriEdukiak(PATH_MAP.get("Edukiak"));
 		this.irakurriLangileak();
 		this.irakurriAstea();
@@ -281,4 +281,21 @@ public class SunsetCinema {
 	public EdukiZerrenda gehituDaitezkeEgunean(AstekoEguna izeEguna) {
 		return astea[fromAstekoEgunaToIndex(izeEguna)].gehituDaitezke(this.edukiak);
 	}
+
+	public EdukiZerrenda getEdukiak() {
+		return edukiak;
+	}
+
+	public void setEZerrenda(EdukiZerrenda newEZerrenda) {
+		this.edukiak = newEZerrenda;
+	}
+
+    public void gehituEdukiaEgunean(Eduki edukia, AstekoEguna eguna) {
+		astea[fromAstekoEgunaToIndex(eguna)].edukiaGehitu(edukia);
+    }
+
+    public void kargatuEdukiak() {
+		this.edukiak = irakurriEdukiak(PATH_MAP.get("Edukiak"));
+    }
+
 }

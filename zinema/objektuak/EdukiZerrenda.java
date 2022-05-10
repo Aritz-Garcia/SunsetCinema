@@ -89,6 +89,14 @@ public class EdukiZerrenda {
     public Eduki getEdukia(int i) {
         return edukiak.get(i);
     }
+    public Eduki getEdukiaById(int id) {
+        for (Eduki eduki : edukiak) {
+            if (eduki.getId() == id) {
+                return eduki;
+            }
+        }
+        return null;
+    }
 
     public boolean edukiaIdKonp(int id1) {
         for (Eduki edukia : edukiak) {
