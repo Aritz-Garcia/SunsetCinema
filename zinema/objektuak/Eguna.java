@@ -90,4 +90,16 @@ public class Eguna {
         return edukiak.getGehituDaitezke(this.edukiak);
     }
 
+    public int getIraupena() {
+        return this.edukiak.getIraupenOsoa();
+    }
+
+    public int getOrduMax() {
+        return this.orduDisMax;
+    }
+
+    public int getEdukiKop() {
+        return this.edukiak.getEdukiKop();
+    }
+
 }

@@ -60,6 +60,21 @@ public class SunsetCinema {
 		return astea[i].infoDauka();
 	}
 
+	public int getIraupena(int i) {
+		
+		return astea[i].getIraupena();
+	}
+
+	public int getOrduMax(int i) {
+		
+		return astea[i].getOrduMax();
+	}
+
+	public int getEdukiKop(int i) {
+		
+		return astea[i].getEdukiKop();
+	}
+
 	public void idatzi() {
 
 	}

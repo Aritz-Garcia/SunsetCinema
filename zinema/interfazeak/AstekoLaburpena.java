@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -283,14 +285,20 @@ public class AstekoLaburpena {
 		gbc_verticalBox.gridx = 3;
 		gbc_verticalBox.gridy = 1;
 		panel_1.add(textPane, gbc_verticalBox);
-		
-		JButton btnNewButton = new JButton("Atzera");
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.insets = new Insets(0, 0, 0, 5);
-		gbc_btnNewButton.gridx = 3;
-		gbc_btnNewButton.gridy = 3;
-		panel_1.add(btnNewButton, gbc_btnNewButton);
 	
+		JButton btnAtzera = new JButton("Atzera");
+		GridBagConstraints gbc_btnAtzera = new GridBagConstraints();
+		gbc_btnAtzera.insets = new Insets(0, 0, 0, 5);
+		gbc_btnAtzera.gridx = 3;
+		gbc_btnAtzera.gridy = 3;
+		panel_1.add(btnAtzera, gbc_btnAtzera);
+
+		btnAtzera.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				EgunaAukeratu.main(null);
+			}
+		});
 		
 	}
 	private void setEdukiInfo(AstekoEguna eguna, int edukia) {
