@@ -502,6 +502,7 @@ public class Contenidos {
 		okBot = new JButton("OK");
 		okBot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				reset();
 				balidatu(eguna);
 			}
 		});
@@ -726,6 +727,10 @@ public class Contenidos {
 	}
 
 	private void refresh(AstekoEguna eguna) {
+		if (SunsetCinema.getNireSunsetCinema().egunaBetetaDago(eguna)) {
+			btnResDia.setEnabled(true);
+		}
+
 		int iraup = SunsetCinema.getNireSunsetCinema().getIraupena(eguna);
 		int egunDenb = SunsetCinema.getNireSunsetCinema().getOrduMax(eguna)*60;
 		soberanDenb.setText((egunDenb-iraup) + "");
@@ -779,6 +784,6 @@ public class Contenidos {
 		for (JTextField textF : fieldList) {
 			textF.setText("");
 		}
-		this.id.setText("" + SunsetCinema.getNireSunsetCinema().getAzkenId() + 1);
+		this.id.setText(String.valueOf(SunsetCinema.getNireSunsetCinema().getAzkenId() + 1));
 	}
 }

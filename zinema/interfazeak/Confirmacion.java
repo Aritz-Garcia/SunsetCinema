@@ -95,7 +95,7 @@ public class Confirmacion {
 		gbc_lblConfText.gridy = 4;
 		panel.add(lblConfText, gbc_lblConfText);
 		
-		JButton btnVLogin = new JButton("Volver al menu del login");
+		JButton btnVLogin = new JButton("Loginera bueltatu");
 		GridBagConstraints gbc_btnVLogin = new GridBagConstraints();
 		gbc_btnVLogin.insets = new Insets(0, 0, 5, 5);
 		gbc_btnVLogin.gridx = 1;

@@ -339,6 +339,4 @@ public class SunsetCinema {
 		return astea[fromAstekoEgunaToIndex(eguna)].betetaDago();
 	}
 
-    
-	
 }
