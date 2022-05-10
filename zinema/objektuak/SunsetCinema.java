@@ -202,6 +202,10 @@ public class SunsetCinema {
 		return astea[fromAstekoEgunaToIndex(izeEguna)].getLaburpena();
 	}
 
+	public void infoEgunaSartu(Eduki edukia, AstekoEguna izeEguna) {
+		astea[fromAstekoEgunaToIndex(izeEguna)].setEdukia(edukia);
+	}
+
 	private int fromAstekoEgunaToIndex(AstekoEguna izeEguna) {
 		int i = -1;
 		switch (izeEguna) {
@@ -316,5 +320,5 @@ public class SunsetCinema {
 	public int getAzkenId() {
 		return edukiak.getAzkenId();
 	}
-
+	
 }

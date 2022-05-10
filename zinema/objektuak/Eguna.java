@@ -50,6 +50,11 @@ public class Eguna {
             if (edukiak.getIraupenOsoa() + edukia.getIraupena() <= orduDisMax*60)
                 edukiak.sartuEdukia(edukia);
     }
+
+    public void setEdukia(Eduki edukia) {
+        this.edukiak.gehitu(edukia);;
+    }
+    
     public void setEdukiak(EdukiZerrenda edukiak) {
         this.edukiak = edukiak;
     }

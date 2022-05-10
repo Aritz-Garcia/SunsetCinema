@@ -161,6 +161,10 @@ public class Contenidos {
 		panel.add(btnAnadirPelic, gbc_btnAnadirPelic);
 		btnAnadirPelic.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Eduki edukia = posibleak.getEdukia(tablePosibleak.getSelectedRow());
+				posibleak.ezabatuById(edukia.getId());
+				SunsetCinema.getNireSunsetCinema().infoEgunaSartu(edukia, eguna);
+				refresh(eguna);
 			}
 		});
 
