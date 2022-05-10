@@ -9,7 +9,6 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.image.BufferedImage;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -26,7 +25,6 @@ import objektuak.SunsetCinema;
 public class EgunaAukeratu extends JPanel {
 
 	private JFrame frame;
-	private BufferedImage image;
 	private JLabel edukiKop;
 	private JLabel denboraSob;
 	private JLabel bzbsIraupena;
