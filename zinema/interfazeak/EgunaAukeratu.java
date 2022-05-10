@@ -18,6 +18,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import objektuak.AstekoEguna;
 import objektuak.SunsetCinema;
 
 import java.awt.Component;
@@ -81,16 +82,6 @@ public class EgunaAukeratu extends JPanel {
 
 		/*------------------------------------------------------------------------------------------------------*/
 
-		ArrayList<String> ArrayEnpresaKargua = new ArrayList<>();
-		ArrayEnpresaKargua.add("");
-		ArrayEnpresaKargua.add("Astelehena");
-		ArrayEnpresaKargua.add("Asteartea");
-		ArrayEnpresaKargua.add("Asteazkena");
-		ArrayEnpresaKargua.add("Osteguna");
-		ArrayEnpresaKargua.add("Ostirala");
-		ArrayEnpresaKargua.add("Larunbata");
-		ArrayEnpresaKargua.add("Igandea");
-
 		JLabel lblRegistro = new JLabel("Egun Aukeraketa");
 		lblRegistro.setFont(new Font("Tahoma", Font.BOLD, 15));
 		lblRegistro.setAlignmentX(0.5f);
@@ -114,7 +105,7 @@ public class EgunaAukeratu extends JPanel {
 
 		Component rigidArea_4 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_1.add(rigidArea_4);
-		JComboBox comboBoxEnpresaKargua = new JComboBox(ArrayEnpresaKargua.toArray());
+		JComboBox comboBoxEnpresaKargua = new JComboBox(AstekoEguna.values());
 
 		horizontalBox_1.add(comboBoxEnpresaKargua);
 
@@ -278,20 +269,17 @@ public class EgunaAukeratu extends JPanel {
 		btnKartelera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
-				Contenidos.main(null);
+				Contenidos.main((AstekoEguna)comboBoxEnpresaKargua.getSelectedItem());
 			}
 		});
 
 		comboBoxEnpresaKargua.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if (comboBoxEnpresaKargua.getSelectedIndex() > 0) {
-					btnKartelera.setEnabled(true);
-					if(SunsetCinema.getNireSunsetCinema().infoDauka(comboBoxEnpresaKargua.getSelectedIndex()-1))
+				if(SunsetCinema.getNireSunsetCinema().infoDauka(comboBoxEnpresaKargua.getSelectedIndex()))
 						verticalBox.setVisible(true);
-
 					else
 						verticalBox.setVisible(false);
-				}
+				btnKartelera.setEnabled(true);;
 			}
 		});
 

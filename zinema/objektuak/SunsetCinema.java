@@ -37,6 +37,16 @@ public class SunsetCinema {
 		PATH_MAP.put("LARUNBATA", "./zinema/datuak/Larunbata.csv");
 		PATH_MAP.put("IGANDEA", "./zinema/datuak/Igandea.csv");
 		
+		/*PATH_MAP.put("Edukiak", "./datuak/Edukiak.csv");
+		PATH_MAP.put("Langileak", "./datuak/Langileak.csv");
+		PATH_MAP.put("ASTELEHENA", "./datuak/Astelehena.csv");
+		PATH_MAP.put("ASTEARTEA", "./datuak/Asteartea.csv");
+		PATH_MAP.put("ASTEAZKENA", "./datuak/Asteazkena.csv");
+		PATH_MAP.put("OSTEGUNA", "./datuak/Osteguna.csv");
+		PATH_MAP.put("OSTIRALA", "./datuak/Ostirala.csv");
+		PATH_MAP.put("LARUNBATA", "./datuak/Larunbata.csv");
+		PATH_MAP.put("IGANDEA", "./datuak/Igandea.csv");*/
+		
 		kargatuDatuak();
 	}
 
@@ -261,5 +271,9 @@ public class SunsetCinema {
 
 	public int lortuId(String titulua) {
 		return edukiak.lortuId(titulua);
+	}
+
+	public String[][] editEguna(AstekoEguna izeEguna) {
+		return astea[fromAstekoEgunaToIndex(izeEguna)].getEditLaburpena();
 	}
 }

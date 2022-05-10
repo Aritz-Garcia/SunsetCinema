@@ -11,6 +11,8 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -127,7 +129,7 @@ public class Login {
 		horizontalBox_1_1.add(rigidArea_1_1);
 
 		JButton btnLogeatu = new JButton("Logeatu");
-		btnLogeatu.addActionListener(a -> logeatu());
+		
 		horizontalBox_1_1.add(btnLogeatu);
 
 		Component rigidArea_2 = Box.createRigidArea(new Dimension(20, 20));
@@ -149,6 +151,18 @@ public class Login {
 				Registro.main(null);
 			}
 		});
+
+		Action action = new AbstractAction(){
+			public void actionPerformed(ActionEvent e) {
+				logeatu();
+			}
+		};
+
+	
+		textFieldErabiltzailea.addActionListener(action);
+		textFieldPasahitza.addActionListener(action);
+
+		btnLogeatu.addActionListener(action);
 
 	}
 

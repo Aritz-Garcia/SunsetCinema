@@ -82,4 +82,8 @@ public class Eguna {
         return this.edukiak.getIraupenOsoa() > 0;
     }
 
+    public String[][] getEditLaburpena() {
+        return edukiak.getEditLaburpena();
+    }
+
 }
