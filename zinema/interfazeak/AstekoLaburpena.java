@@ -62,7 +62,7 @@ public class AstekoLaburpena {
 	private void initialize() {
 		SunsetCinema sc = SunsetCinema.getNireSunsetCinema();
 		frame = new JFrame();
-		frame.setBounds(100, 100, 574, 634);
+		frame.setBounds(100, 100, 800, 634);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		String izenburuak[] = {"Izenburua", "Hasierako ordua", "Amaierako ordua"};
 		String infoLun[][] = sc.infoEguna(AstekoEguna.ASTELEHENA);
