@@ -246,7 +246,7 @@ public class Registro {
 		gbc_horizontalBox_8.gridy = 11;
 		panel.add(horizontalBox_8, gbc_horizontalBox_8);
 		
-		JButton btnRegistrar = new JButton("Registrar usuario");
+		JButton btnRegistrar = new JButton("Erabiltzailea erregistratu");
 		horizontalBox_8.add(btnRegistrar);
 
 		btnRegistrar.addActionListener(new ActionListener(){  
@@ -306,7 +306,7 @@ public class Registro {
 		Component rigidArea_8 = Box.createRigidArea(new Dimension(10, 20));
 		horizontalBox_8.add(rigidArea_8);
 		
-		JButton btnLogin = new JButton("Volver a login");
+		JButton btnLogin = new JButton("Loginera bueltatu");
 		horizontalBox_8.add(btnLogin);
 		
 		btnLogin.addActionListener(new ActionListener(){  
