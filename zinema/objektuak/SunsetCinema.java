@@ -27,6 +27,7 @@ public class SunsetCinema {
 		PATH_MAP = new HashMap<String, String>();
 		this.edukiak = new EdukiZerrenda();
 		this.langileak = new ArrayList<Langilea>();
+		
 		PATH_MAP.put("Edukiak", "./zinema/datuak/Edukiak.csv");
 		PATH_MAP.put("Langileak", "./zinema/datuak/Langileak.csv");
 		PATH_MAP.put("ASTELEHENA", "./zinema/datuak/Astelehena.csv");

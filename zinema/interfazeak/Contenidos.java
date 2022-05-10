@@ -147,6 +147,18 @@ public class Contenidos {
 		});
 		scrollPane_1.setViewportView(table_1);
 		
+		JButton btnAnadirPelic = new JButton("<<");
+		GridBagConstraints gbc_btnAnadirPelic = new GridBagConstraints();
+		gbc_btnAnadirPelic.anchor = GridBagConstraints.WEST;
+		gbc_btnAnadirPelic.insets = new Insets(0, 0, 5, 5);
+		gbc_btnAnadirPelic.gridx = 2;
+		gbc_btnAnadirPelic.gridy = 2;
+		panel.add(btnAnadirPelic, gbc_btnAnadirPelic);
+		btnAnadirPelic.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		
 		JScrollPane scrollPane = new JScrollPane();
 		GridBagConstraints gbc_scrollPane = new GridBagConstraints();
 		gbc_scrollPane.fill = GridBagConstraints.BOTH;
@@ -183,35 +195,25 @@ public class Contenidos {
 		gbc_verticalBox.gridy = 3;
 		panel.add(verticalBox, gbc_verticalBox);
 		
-		JButton btnEditar = new JButton("Editatu");
-		verticalBox.add(btnEditar);
-		
-		Component rigidArea_2 = Box.createRigidArea(new Dimension(20, 20));
-		verticalBox.add(rigidArea_2);
-		
-		JButton btnBorrar = new JButton("Ezabatu");
-		btnBorrar.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				
-					
-				}
-		});
-		verticalBox.add(btnBorrar);
-		
-		Component rigidArea_3 = Box.createRigidArea(new Dimension(20, 20));
-		verticalBox.add(rigidArea_3);
-		
-		JButton btnNuevo = new JButton("Berria");
-		verticalBox.add(btnNuevo);
-		
 		Box horizontalBox_2 = Box.createHorizontalBox();
-		horizontalBox_2.setVisible(false);
 		GridBagConstraints gbc_horizontalBox_2 = new GridBagConstraints();
-		gbc_horizontalBox_2.anchor = GridBagConstraints.WEST;
-		gbc_horizontalBox_2.insets = new Insets(0, 0, 5, 5);
-		gbc_horizontalBox_2.gridx = 1;
+		gbc_horizontalBox_2.fill = GridBagConstraints.HORIZONTAL;
+		gbc_horizontalBox_2.insets = new Insets(0, 0, 5, 0);
+		gbc_horizontalBox_2.gridx = 3;
 		gbc_horizontalBox_2.gridy = 4;
 		panel.add(horizontalBox_2, gbc_horizontalBox_2);
+		
+		JButton sortu = new JButton("+");
+		horizontalBox_2.add(sortu);
+		
+		Component rigidArea = Box.createRigidArea(new Dimension(20, 20));
+		horizontalBox_2.add(rigidArea);
+		
+		JButton kendu = new JButton("-");
+		horizontalBox_2.add(kendu);
+		
+		Component glue = Box.createGlue();
+		horizontalBox_2.add(glue);
 		
 		JButton btnCancelar = new JButton("Kantzelatu");
 		horizontalBox_2.add(btnCancelar);
@@ -230,19 +232,14 @@ public class Contenidos {
 		gbc_verticalBox_2.gridy = 5;
 		panel.add(verticalBox_2, gbc_verticalBox_2);
 		
-		JButton btnAnadirPelic = new JButton("Pelikula gehitu");
-		btnAnadirPelic.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		verticalBox_2.add(btnAnadirPelic);
-		
-		Component rigidArea_5 = Box.createRigidArea(new Dimension(10, 10));
-		verticalBox_2.add(rigidArea_5);
-		
 		JButton btnResDia = new JButton("Eguneko Laburpena");
+		GridBagConstraints gbc_btnResDia = new GridBagConstraints();
+		gbc_btnResDia.anchor = GridBagConstraints.WEST;
+		gbc_btnResDia.insets = new Insets(0, 0, 0, 5);
+		gbc_btnResDia.gridx = 1;
+		gbc_btnResDia.gridy = 6;
+		panel.add(btnResDia, gbc_btnResDia);
 		btnResDia.setEnabled(false);
-		verticalBox_2.add(btnResDia);
 		
 		JButton btnBueltatu = new JButton("Bueltatu Egun Aukeraketara");
 		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
@@ -261,20 +258,6 @@ public class Contenidos {
             public void actionPerformed(ActionEvent e){
 				frame.setVisible(false);
             	EgunaAukeratu.main(null);
-            }
-		});
-		
-		
-		btnEditar.addActionListener(new ActionListener(){  
-            public void actionPerformed(ActionEvent e){
-            	frame.setVisible(false);
-            	EdukiaEditatu.main(null);
-            }
-		});
-		
-		btnNuevo.addActionListener(new ActionListener(){  
-            public void actionPerformed(ActionEvent e){
-            	EdukiBerria.main(null);
             }
 		});
 		
