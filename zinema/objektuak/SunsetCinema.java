@@ -211,7 +211,7 @@ public class SunsetCinema {
 	}
 
 	public void infoEgunaSartu(Eduki edukia, AstekoEguna izeEguna) {
-		astea[fromAstekoEgunaToIndex(izeEguna)].setEdukia(edukia);
+		astea[fromAstekoEgunaToIndex(izeEguna)].edukiaGehitu(edukia);
 	}
 
 	private int fromAstekoEgunaToIndex(AstekoEguna izeEguna) {

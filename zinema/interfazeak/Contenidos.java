@@ -576,6 +576,12 @@ public class Contenidos {
 		horizontalBox_2.add(btnConfirmar);
 
 		btnResDia = new JButton("Eguneko Laburpena");
+		btnResDia.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				frame.setVisible(false);
+				EgunLaburpena.main(eguna);
+			}
+		});
 		GridBagConstraints gbc_btnResDia = new GridBagConstraints();
 		gbc_btnResDia.fill = GridBagConstraints.VERTICAL;
 		gbc_btnResDia.anchor = GridBagConstraints.WEST;

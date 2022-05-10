@@ -29,12 +29,12 @@ public class EgunLaburpena {
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
+	public static void main(AstekoEguna e) {
 		SunsetCinema.getNireSunsetCinema();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					EgunLaburpena window = new EgunLaburpena(AstekoEguna.ASTELEHENA);
+					EgunLaburpena window = new EgunLaburpena(e);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -107,7 +107,11 @@ public class EgunLaburpena {
 		gbc_textPane.gridy = 2;
 		frame.getContentPane().add(textPane, gbc_textPane);
 		
-		JButton btnConfirmar = new JButton("Confirmar");
+		JButton btnConfirmar = new JButton("OK");
+		btnConfirmar.addActionListener(l -> {
+			frame.setVisible(false);
+			EgunaAukeratu.main(null);
+		});
 		GridBagConstraints gbc_btnConfirmar = new GridBagConstraints();
 		gbc_btnConfirmar.insets = new Insets(0, 0, 5, 5);
 		gbc_btnConfirmar.gridx = 1;
