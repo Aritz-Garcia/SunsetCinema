@@ -399,14 +399,27 @@ public class SunsetCinema {
 		return edukiak.sortuPelik(id, tit, iraupen, generoa, pegi);
 	}
 
+	/**
+	 * Edukien izenak ArrayList batean gordetzeko metodoa
+	 * @return Edukien izenak ArrayList batean gordeta
+	 */
 	public ArrayList<String> edukienIzena() {
 		return edukiak.edukienIzena();
 	}
 
+	/**
+	 * Edukiak ArrayList-ean gordetzeko metodoa
+	 * @param edukiakEdit Editatutako edukien ArrayList-a
+	 * @return Edukiak ArrayList-ean gordeta
+	 */
 	public ArrayList<String> edukiakGehituta(ArrayList<String> edukiakEdit) {
         return edukiak.edukiakGehituta(edukiakEdit);
     }
 
+	/**
+	 * Edukiak CSV-an gordetzeko metodoa
+	 * @throws IOException e
+	 */
 	public void edukiakCSV() throws IOException{
 		Eduki eduk = new Eduki();
 		try (FileWriter csvWriter = new FileWriter(PATH_MAP.get("Edukiak"))) {
@@ -420,48 +433,91 @@ public class SunsetCinema {
 		}
 	}
 
+	/** Egunak CSV-ak idazteko metodoa */
 	public void egunakCSV() {
 		for (Eguna eguna : astea) {
 			eguna.idatziCSV(PATH_MAP.get(eguna.getIzena()));
 		}
     }
 
+	/**
+	 * Edukiak kentzeko metodoa
+	 * @param id Edukiaren ID-a
+	 */
 	public void edukiaKendu(int id) {
 		edukiak.ezabatuById(id);
 	}
 
+	/**
+	 * Edukiaren tituluarekin id-a lortzeko metodoa
+	 * @param titulua Titulua
+	 * @return Edukiaren id
+	 */
 	public int lortuId(String titulua) {
 		return edukiak.lortuId(titulua);
 	}
 
+	/**
+	 * Eguneko informazioa array batean gordetzeko metodoa
+	 * @param izeEguna Asteko eguna idatzita
+	 * @return Eguneko informazioa array batean gordeta
+	 */
 	public String[][] editEguna(AstekoEguna izeEguna) {
 		return astea[fromAstekoEgunaToIndex(izeEguna)].getEditLaburpena();
 	}
 
+	/**
+	 * Eguneko edukiak EdukiZerrenda batean gordetzeko metodoa
+	 * @param izeEguna Asteko eguna idatzita
+	 * @return Eguneko edukiak EdukiZerrenda batean
+	 */
 	public EdukiZerrenda gehituDaitezkeEgunean(AstekoEguna izeEguna) {
 		return astea[fromAstekoEgunaToIndex(izeEguna)].gehituDaitezke(this.edukiak);
 	}
 
+	/**
+	 * Edukiak lortzeko metodoa
+	 * @return Edukiak
+	 */
 	public EdukiZerrenda getEdukiak() {
 		return edukiak;
 	}
 
+	/**
+	 * EdukiZerrenda informazioa idazteko metodoa
+	 * @param newEZerrenda Zerrenda berria
+	 */
 	public void setEZerrenda(EdukiZerrenda newEZerrenda) {
 		this.edukiak = newEZerrenda;
 	}
 
-    public void gehituEdukiaEgunean(Eduki edukia, AstekoEguna eguna) {
+    /**
+	 * Edukia gehitzeko metodoa Asteko egunarekin.
+	 * @param edukia Edukiak
+	 * @param eguna Asteko eguna idatzita
+	 */
+	public void gehituEdukiaEgunean(Eduki edukia, AstekoEguna eguna) {
 		astea[fromAstekoEgunaToIndex(eguna)].edukiaGehitu(edukia);
     }
 
-    public void kargatuEdukiak() {
+    /** Edukiak kargatzeko metodoa */
+	public void kargatuEdukiak() {
 		this.edukiak = irakurriEdukiak(PATH_MAP.get("Edukiak"));
     }
 
+	/**
+	 * Azken id-a lortzeko metodoa
+	 * @return Azken id-a
+	 */
 	public int getAzkenId() {
 		return edukiak.getAzkenId();
 	}
 
+	/**
+	 * Eguna beteta dagoen edo ez jakiteko metodoa.
+	 * @param eguna Asteko eguna idatzita
+	 * @return true beteta badago, false ez badago
+	 */
 	public boolean egunaBetetaDago(AstekoEguna eguna) {
 		return astea[fromAstekoEgunaToIndex(eguna)].betetaDago();
 	}
