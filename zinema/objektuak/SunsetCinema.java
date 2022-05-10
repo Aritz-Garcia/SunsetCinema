@@ -5,15 +5,27 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+/**
+ * SunsetCinema
+ * Intefazeen eta klase desberdinen hartean komunikatzeko klasea
+ */
 public class SunsetCinema {
 
 
+	/** Asteko egunen informazioa gordetzeko array-a */
 	private Eguna[] astea;
+	/** Edukiak gordetzea zerrenda */
 	private EdukiZerrenda edukiak;
+	/** Langileekin login-a egiteko informazioa gordetzeko ArrayList-a */
 	private ArrayList<Langilea> langileak;
+	/** SunsetCinema klase berdina erabiltzeko */
 	private static SunsetCinema sunsetCinema = new SunsetCinema();
+	/** CSV fitxategi desberdinak irakurtzeko PATH_MAP-a inizializatzeko */
 	private static HashMap<String, String> PATH_MAP;
 
+	/**
+	 * Datuak kargatzeko metodoa
+	 */
 	private SunsetCinema() {
 		this.astea = new Eguna[7];
 		astea[0] = new Eguna(AstekoEguna.ASTELEHENA);
@@ -51,38 +63,77 @@ public class SunsetCinema {
 		kargatuDatuak();
 	}
 
+	/**
+	 * SunsetCinema inizializatzeko metodoa
+	 * @return sunsetCinema klasea
+	 */
 	public static SunsetCinema getNireSunsetCinema() {
 		return sunsetCinema;
 	}
 
+	/**
+	 * 
+	 * @param i Asteko egunaren zenbaki baliokidea
+	 * @return Egun bakoitzaren informazioa lortzeko
+	 */
 	public boolean infoDauka(int i) {
 		
 		return astea[i].infoDauka();
 	}
 
+	/**
+	 * Egun bakoitzaren iraupen totala jakiteko metodoa
+	 * @param i Asteko egunaren zenbaki baliokidea
+	 * @return Egun bakoitzeko iraupena
+	 */
 	public int getIraupena(int i) {
 		
 		return astea[i].getIraupena();
 	}
+	
+	/**
+	 * Asteko egunaren zenbaki baliokidea lortzeko metodoa
+	 * @param e Asteko eguna idatziz
+	 * @return Asteko egunaren zenbaki baliokidea
+	 */
 	public int getIraupena(AstekoEguna e) {
 		
 		return astea[this.fromAstekoEgunaToIndex(e)].getIraupena();
 	}
 
+	/**
+	 * Egunak eduki dezakeen ordu maximoa lortzeko metodoa
+	 * @param e Asteko eguna idatziz
+	 * @return Egunak eduki dezakeen ordu maximoa
+	 */
 	public int getOrduMax(AstekoEguna e) {
 		
 		return astea[this.fromAstekoEgunaToIndex(e)].getOrduMax();
 	}
+	
+	/**
+	 * Egunak eduki dezakeen ordu maximoa lortzeko metodoa
+	 * @param i Asteko egunaren zenbaki baliokidea
+	 * @return Egunak eduki dezakeen ordu maximoa
+	 */
 	public int getOrduMax(int i) {
 		
 		return astea[i].getOrduMax();
 	}
 
+	/**
+	 *  Egunak dituen eduki kopurua lortzeko metodoa
+	 * @param i Asteko egunaren zenbaki baliokidea
+	 * @return Egunak dituen eduki kopurua
+	 */
 	public int getEdukiKop(int i) {
 		
 		return astea[i].getEdukiKop();
 	}
 
+	/**
+	 * Langileen informazioa irakurtzek eta ArrayList-ean sartzeko metodoa
+	 */
 	public void irakurriLangileak() {
 		ArrayList<String> langileak = irakurri(PATH_MAP.get("Langileak"));
 		for (String langilea : langileak) {
@@ -99,6 +150,11 @@ public class SunsetCinema {
 		}
 	}
 
+	/**
+	 * Eduki guztiak EdukiZerrenda batean sartzen dituen metodoa
+	 * @param path Fitxategia irakurtzeko PATH-a
+	 * @return Eduki guztiak EdukiZerrenda batean
+	 */
 	private EdukiZerrenda irakurriEdukiak(String path) {
 		ArrayList<String> edukiak = irakurri(path);
 		EdukiZerrenda edukiZerrenda = new EdukiZerrenda();
@@ -136,12 +192,18 @@ public class SunsetCinema {
 		return edukiZerrenda;
 	}
 
+	/** Asteko informazioa irakurtzen duen metodoa */
 	public void irakurriAstea(){
 		for (Eguna eguna : astea) {
 			eguna.setEdukiak(irakurriEdukiak(PATH_MAP.get(eguna.getIzena())));
 		}
 	}
 
+	/**
+	 * CSV fitxategiak irakurtzeko metodoa
+	 * @param path Fitxategia irakurtzeko PATH-a
+	 * @return Informazioa ArrayList batean
+	 */
 	private ArrayList<String> irakurri(String path) {
 
 		ArrayList<String> info = new ArrayList<String>();
@@ -164,12 +226,19 @@ public class SunsetCinema {
 		return info;
 	}
 
-    public void kargatuDatuak() {
+    /** Datuak kargatzeko metodoa */
+	public void kargatuDatuak() {
 		this.edukiak = irakurriEdukiak(PATH_MAP.get("Edukiak"));
 		this.irakurriLangileak();
 		this.irakurriAstea();
     }
 
+	/**
+	 * Logeaketa konprobatzeko metodoa
+	 * @param log Logina
+	 * @param pas pasahitza
+	 * @return true logina ondo badago eta false txarto badago
+	 */
 	public boolean logeatu(String log, String pas) {
 		for (Langilea langilea : langileak) {
 			if (langilea.logeatu(log, pas)) {
@@ -179,6 +248,11 @@ public class SunsetCinema {
 		return false;
 	}
 
+	/**
+	 * Login izena existizen baden konprobatzen duen metodoa
+	 * @param log Logina
+	 * @return true existitzen bada, bestela false
+	 */
 	public boolean erabiltzaileaExistitzenDa(String log) {
 		for (Langilea langilea : langileak) {
 			if (langilea.getLogin().equals(log)) {
@@ -188,6 +262,17 @@ public class SunsetCinema {
 		return false;
 	}
 
+	/**
+	 * Erabiltzaile berria erregistratzen duen metodoa
+	 * @param izen Izena
+	 * @param abizen1 Lehen abizena
+	 * @param abizen2 Bigarren abizena
+	 * @param jaioData Jaiotze data
+	 * @param login Login izena
+	 * @param pass Pasahitza
+	 * @param kargua Kargua
+	 * @return false iada existitzen bada erabiltzailea, bestela true
+	 */
 	public boolean erregistratu(String izen, String abizen1, String abizen2, String jaioData, String login, String pass, EnpresaKargua kargua) {
 		if (erabiltzaileaExistitzenDa(login)) {
 			return false;
@@ -206,10 +291,20 @@ public class SunsetCinema {
 		return astea[fromAstekoEgunaToIndex(izeEguna)].getLaburpena();
 	}
 
+	/**
+	 * Eduki berria sartutako egunean sartzeko metodoa
+	 * @param edukia Edukiak
+	 * @param izeEguna Asteko eguna idatziz
+	 */
 	public void infoEgunaSartu(Eduki edukia, AstekoEguna izeEguna) {
 		astea[fromAstekoEgunaToIndex(izeEguna)].edukiaGehitu(edukia);
 	}
 
+	/**
+	 * Asteko egunaren zenbaki baliokidea lortzeko metodoa
+	 * @param izeEguna Asteko eguna idatziz
+	 * @return Asteko egunaren zenbaki baliokidea
+	 */
 	private int fromAstekoEgunaToIndex(AstekoEguna izeEguna) {
 		int i = -1;
 		switch (izeEguna) {
@@ -238,10 +333,20 @@ public class SunsetCinema {
 		return i;
 	}
 
+	/**
+	 * Asteko egunean dagoen edukiaren informazioa lortzeko metodoa
+	 * @param edukia Edukia
+	 * @param e Asteko eguna idatziz
+	 * @return Asteko egunean dagoen edukiaren informazioa
+	 */
 	public String infoEgunEdukia(int edukia, AstekoEguna e) {
 		return astea[fromAstekoEgunaToIndex(e)].infoEdukia(edukia);
 	}
 	
+	/**
+	 * Langileen informazioa CSV-etan gordetzeko metodoa
+	 * @throws IOException e
+	 */
 	public void meterDatosLangilea() throws IOException{
 			
 			Langilea lang = new Langilea();
@@ -256,14 +361,40 @@ public class SunsetCinema {
 	        }
 	}
 	
+	/**
+	 * Larbumetrai berria sortzeko metodoa
+	 * @param id ID-a
+	 * @param tit Titulua
+	 * @param iraupen Iraupena
+	 * @param fabula Fabula
+	 * @return true sortu bada, false iada existitzen bada
+	 */
 	public boolean gehituLarb(int id, String tit, int iraupen, String fabula) {
 		return edukiak.sortuLarb(id, tit, iraupen, fabula);
 	}
 
+	/**
+	 * Dokumental berria sortzeko metodoa
+	 * @param id ID-a
+	 * @param tit Titulua
+	 * @param iraupen Iraupena
+	 * @param tema Tema
+	 * @param produktorea Produktorea
+	 * @return true sortu bada, false iada existitzen bada
+	 */
 	public boolean gehituDoku(int id, String tit, int iraupen, String tema, String produktorea) {
 		return edukiak.sortuDoc(id, tit, iraupen, tema, produktorea);
 	}
 
+	/**
+	 * Pelikula berria sortzeko metodoa
+	 * @param id ID-a
+	 * @param tit Titulua
+	 * @param iraupen Iraupena
+	 * @param generoa Generoa
+	 * @param pegi Pegi-a
+	 * @return true sortu bada, false iada existitzen bada
+	 */
 	public boolean gehituPelik(int id, String tit, int iraupen, String generoa, Pegi pegi) {
 		return edukiak.sortuPelik(id, tit, iraupen, generoa, pegi);
 	}
