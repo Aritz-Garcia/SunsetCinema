@@ -1,5 +1,7 @@
 package objektuak;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 
@@ -35,7 +37,7 @@ public class EdukiZerrenda {
 
     private boolean sartuDauiteke(Eduki edukia) {
         for (Eduki eduki : edukiak) {
-            if (eduki.generoTituluaKonparatu(edukia)) {
+            if (eduki.gehituDaiteke(edukia)) {
                 return false;
             }
         }
@@ -89,6 +91,7 @@ public class EdukiZerrenda {
     public Eduki getEdukia(int i) {
         return edukiak.get(i);
     }
+
     public Eduki getEdukiaById(int id) {
         for (Eduki eduki : edukiak) {
             if (eduki.getId() == id) {
@@ -180,10 +183,10 @@ public class EdukiZerrenda {
         return laburpena;
     }
 
-    public EdukiZerrenda getGehituDaitezke(EdukiZerrenda eZerrenda) {
+    public EdukiZerrenda getGehituDaitezke(EdukiZerrenda eZerrenda, int maxDenbora) {
         EdukiZerrenda gehitu = new EdukiZerrenda();
         for (Eduki eduki : edukiak) {
-            if (eZerrenda.gehituDaiteke(eduki)) {
+            if (eZerrenda.gehituDaiteke(eduki) && eduki.getIraupena() <= maxDenbora) {
                 gehitu.gehitu(eduki);
             }
         }
@@ -193,7 +196,7 @@ public class EdukiZerrenda {
     public boolean gehituDaiteke(Eduki e) {
         boolean segi = true;
         for (int i = 0; i < edukiak.size() && segi; i++) {
-            segi = edukiak.get(i).generoTituluaKonparatu(e);
+            segi = edukiak.get(i).gehituDaiteke(e);
         }
         return segi;
     }
@@ -204,5 +207,16 @@ public class EdukiZerrenda {
             bzbs += eduki.getIraupena();
         }
         return bzbs / edukiak.size();
+    }
+
+    public void idatziCSVEgunean(String path) {
+        try (FileWriter csvWriter = new FileWriter(path)) {
+            for (Eduki eduki : edukiak) {
+                csvWriter.append(eduki.getCSV());
+                csvWriter.append("\n");
+            }
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }

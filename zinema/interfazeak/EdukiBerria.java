@@ -47,7 +47,7 @@ public class EdukiBerria extends JFrame {
 	private JRadioButton aukePel;
 	private JRadioButton aukeDok;
 	private final ButtonGroup botoiak = new ButtonGroup();
-	private JLabel lblNewLabel_7;
+	private JLabel labelIzenburua;
 	private Box horizontalBox_1;
 	private JButton okBot;
 	private JButton ezBot;
@@ -90,21 +90,21 @@ public class EdukiBerria extends JFrame {
 				Double.MIN_VALUE };
 		contentPane.setLayout(gbl_contentPane);
 
-		lblNewLabel_7 = new JLabel("Eduki Berria Sortu");
-		lblNewLabel_7.setFont(new Font("Tahoma", Font.BOLD, 15));
-		GridBagConstraints gbc_lblNewLabel_7 = new GridBagConstraints();
-		gbc_lblNewLabel_7.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_7.gridx = 2;
-		gbc_lblNewLabel_7.gridy = 1;
-		contentPane.add(lblNewLabel_7, gbc_lblNewLabel_7);
+		labelIzenburua = new JLabel("Eduki Berria Sortu");
+		labelIzenburua.setFont(new Font("Tahoma", Font.BOLD, 15));
+		GridBagConstraints gbc_labelIzenburua = new GridBagConstraints();
+		gbc_labelIzenburua.insets = new Insets(0, 0, 5, 5);
+		gbc_labelIzenburua.gridx = 2;
+		gbc_labelIzenburua.gridy = 1;
+		contentPane.add(labelIzenburua, gbc_labelIzenburua);
 
-		JLabel lblNewLabel = new JLabel("ID:");
-		GridBagConstraints gbc_lblNewLabel = new GridBagConstraints();
-		gbc_lblNewLabel.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel.anchor = GridBagConstraints.WEST;
-		gbc_lblNewLabel.gridx = 1;
-		gbc_lblNewLabel.gridy = 2;
-		contentPane.add(lblNewLabel, gbc_lblNewLabel);
+		JLabel labelID = new JLabel("ID:");
+		GridBagConstraints gbc_labelID = new GridBagConstraints();
+		gbc_labelID.insets = new Insets(0, 0, 5, 5);
+		gbc_labelID.anchor = GridBagConstraints.WEST;
+		gbc_labelID.gridx = 1;
+		gbc_labelID.gridy = 2;
+		contentPane.add(labelID, gbc_labelID);
 
 		id = new JTextField();
 		id.setText(SunsetCinema.getNireSunsetCinema().getAzkenId() + 1 + "");
@@ -118,13 +118,13 @@ public class EdukiBerria extends JFrame {
 		contentPane.add(id, gbc_id);
 		id.setColumns(10);
 
-		JLabel lblNewLabel_1 = new JLabel("Titulua:");
-		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
-		gbc_lblNewLabel_1.anchor = GridBagConstraints.WEST;
-		gbc_lblNewLabel_1.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_1.gridx = 1;
-		gbc_lblNewLabel_1.gridy = 3;
-		contentPane.add(lblNewLabel_1, gbc_lblNewLabel_1);
+		JLabel labelTitulua = new JLabel("Titulua:");
+		GridBagConstraints gbc_labelTitulua = new GridBagConstraints();
+		gbc_labelTitulua.anchor = GridBagConstraints.WEST;
+		gbc_labelTitulua.insets = new Insets(0, 0, 5, 5);
+		gbc_labelTitulua.gridx = 1;
+		gbc_labelTitulua.gridy = 3;
+		contentPane.add(labelTitulua, gbc_labelTitulua);
 
 		titulua = new JTextField();
 		GridBagConstraints gbc_titulua = new GridBagConstraints();
@@ -135,13 +135,13 @@ public class EdukiBerria extends JFrame {
 		contentPane.add(titulua, gbc_titulua);
 		titulua.setColumns(10);
 
-		JLabel lblNewLabel_2 = new JLabel("Iraupena:");
-		GridBagConstraints gbc_lblNewLabel_2 = new GridBagConstraints();
-		gbc_lblNewLabel_2.anchor = GridBagConstraints.WEST;
-		gbc_lblNewLabel_2.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_2.gridx = 1;
-		gbc_lblNewLabel_2.gridy = 4;
-		contentPane.add(lblNewLabel_2, gbc_lblNewLabel_2);
+		JLabel labelIrau = new JLabel("Iraupena:");
+		GridBagConstraints gbc_labelIrau = new GridBagConstraints();
+		gbc_labelIrau.anchor = GridBagConstraints.WEST;
+		gbc_labelIrau.insets = new Insets(0, 0, 5, 5);
+		gbc_labelIrau.gridx = 1;
+		gbc_labelIrau.gridy = 4;
+		contentPane.add(labelIrau, gbc_labelIrau);
 
 		iraupena = new JTextField();
 		GridBagConstraints gbc_iraupena = new GridBagConstraints();
@@ -167,13 +167,13 @@ public class EdukiBerria extends JFrame {
 		gbl_panelLab.rowWeights = new double[] { 0.0, Double.MIN_VALUE };
 		panelLab.setLayout(gbl_panelLab);
 
-		JLabel lblNewLabel_3 = new JLabel("Fabula:");
-		GridBagConstraints gbc_lblNewLabel_3 = new GridBagConstraints();
-		gbc_lblNewLabel_3.anchor = GridBagConstraints.WEST;
-		gbc_lblNewLabel_3.insets = new Insets(0, 0, 0, 5);
-		gbc_lblNewLabel_3.gridx = 0;
-		gbc_lblNewLabel_3.gridy = 0;
-		panelLab.add(lblNewLabel_3, gbc_lblNewLabel_3);
+		JLabel labelFabula = new JLabel("Fabula:");
+		GridBagConstraints gbc_labelFabula = new GridBagConstraints();
+		gbc_labelFabula.anchor = GridBagConstraints.WEST;
+		gbc_labelFabula.insets = new Insets(0, 0, 0, 5);
+		gbc_labelFabula.gridx = 0;
+		gbc_labelFabula.gridy = 0;
+		panelLab.add(labelFabula, gbc_labelFabula);
 
 		fabula = new JTextField();
 		GridBagConstraints gbc_fabula = new GridBagConstraints();
@@ -198,13 +198,13 @@ public class EdukiBerria extends JFrame {
 		gbl_panelPel.rowWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
 		panelPel.setLayout(gbl_panelPel);
 
-		JLabel lblNewLabel_4 = new JLabel("Generoa:");
-		GridBagConstraints gbc_lblNewLabel_4 = new GridBagConstraints();
-		gbc_lblNewLabel_4.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_4.anchor = GridBagConstraints.WEST;
-		gbc_lblNewLabel_4.gridx = 0;
-		gbc_lblNewLabel_4.gridy = 0;
-		panelPel.add(lblNewLabel_4, gbc_lblNewLabel_4);
+		JLabel labelGeneroa = new JLabel("Generoa:");
+		GridBagConstraints gbc_labelGeneroa = new GridBagConstraints();
+		gbc_labelGeneroa.insets = new Insets(0, 0, 5, 5);
+		gbc_labelGeneroa.anchor = GridBagConstraints.WEST;
+		gbc_labelGeneroa.gridx = 0;
+		gbc_labelGeneroa.gridy = 0;
+		panelPel.add(labelGeneroa, gbc_labelGeneroa);
 
 		generoa = new JTextField();
 		GridBagConstraints gbc_generoa = new GridBagConstraints();
@@ -215,13 +215,13 @@ public class EdukiBerria extends JFrame {
 		panelPel.add(generoa, gbc_generoa);
 		generoa.setColumns(10);
 
-		JLabel lblNewLabel_5 = new JLabel("PEGI:");
-		GridBagConstraints gbc_lblNewLabel_5 = new GridBagConstraints();
-		gbc_lblNewLabel_5.anchor = GridBagConstraints.WEST;
-		gbc_lblNewLabel_5.insets = new Insets(0, 0, 0, 5);
-		gbc_lblNewLabel_5.gridx = 0;
-		gbc_lblNewLabel_5.gridy = 1;
-		panelPel.add(lblNewLabel_5, gbc_lblNewLabel_5);
+		JLabel labelPEGI = new JLabel("PEGI:");
+		GridBagConstraints gbc_labelPEGI = new GridBagConstraints();
+		gbc_labelPEGI.anchor = GridBagConstraints.WEST;
+		gbc_labelPEGI.insets = new Insets(0, 0, 0, 5);
+		gbc_labelPEGI.gridx = 0;
+		gbc_labelPEGI.gridy = 1;
+		panelPel.add(labelPEGI, gbc_labelPEGI);
 
 		pegiBox = new JComboBox(Pegi.values());
 		GridBagConstraints gbc_pegiBox = new GridBagConstraints();
@@ -245,13 +245,13 @@ public class EdukiBerria extends JFrame {
 		gbl_panelDok.rowWeights = new double[] { 0.0, 0.0, Double.MIN_VALUE };
 		panelDok.setLayout(gbl_panelDok);
 
-		JLabel lblNewLabel_6 = new JLabel("Tema:");
-		GridBagConstraints gbc_lblNewLabel_6 = new GridBagConstraints();
-		gbc_lblNewLabel_6.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNewLabel_6.anchor = GridBagConstraints.WEST;
-		gbc_lblNewLabel_6.gridx = 0;
-		gbc_lblNewLabel_6.gridy = 0;
-		panelDok.add(lblNewLabel_6, gbc_lblNewLabel_6);
+		JLabel labelTema = new JLabel("Tema:");
+		GridBagConstraints gbc_labelTema = new GridBagConstraints();
+		gbc_labelTema.insets = new Insets(0, 0, 5, 5);
+		gbc_labelTema.anchor = GridBagConstraints.WEST;
+		gbc_labelTema.gridx = 0;
+		gbc_labelTema.gridy = 0;
+		panelDok.add(labelTema, gbc_labelTema);
 
 		tema = new JTextField();
 		GridBagConstraints gbc_tema = new GridBagConstraints();
@@ -262,13 +262,13 @@ public class EdukiBerria extends JFrame {
 		panelDok.add(tema, gbc_tema);
 		tema.setColumns(10);
 
-		JLabel lblNewLabel_13 = new JLabel("Produktorea:");
-		GridBagConstraints gbc_lblNewLabel_13 = new GridBagConstraints();
-		gbc_lblNewLabel_13.anchor = GridBagConstraints.WEST;
-		gbc_lblNewLabel_13.insets = new Insets(0, 0, 0, 5);
-		gbc_lblNewLabel_13.gridx = 0;
-		gbc_lblNewLabel_13.gridy = 1;
-		panelDok.add(lblNewLabel_13, gbc_lblNewLabel_13);
+		JLabel labelProduk = new JLabel("Produktorea:");
+		GridBagConstraints gbc_labelProduk = new GridBagConstraints();
+		gbc_labelProduk.anchor = GridBagConstraints.WEST;
+		gbc_labelProduk.insets = new Insets(0, 0, 0, 5);
+		gbc_labelProduk.gridx = 0;
+		gbc_labelProduk.gridy = 1;
+		panelDok.add(labelProduk, gbc_labelProduk);
 
 		produktorea = new JTextField();
 		GridBagConstraints gbc_produktorea = new GridBagConstraints();

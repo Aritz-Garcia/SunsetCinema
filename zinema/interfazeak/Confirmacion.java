@@ -87,7 +87,7 @@ public class Confirmacion {
 		gbc_lblLogo.gridy = 1;
 		panel.add(lblLogo, gbc_lblLogo);
 		
-		JLabel lblConfText = new JLabel("Se han registardo correctamente los cambios en la cartelera");
+		JLabel lblConfText = new JLabel("Aldaketak gorde dira.");
 		lblConfText.setFont(new Font("Tahoma", Font.BOLD, 12));
 		GridBagConstraints gbc_lblConfText = new GridBagConstraints();
 		gbc_lblConfText.insets = new Insets(0, 0, 5, 5);

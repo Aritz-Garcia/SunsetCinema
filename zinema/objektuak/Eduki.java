@@ -43,7 +43,7 @@ public class Eduki {
         
     }
 
-    public boolean generoTituluaKonparatu(Eduki edukia) {
+    public boolean gehituDaiteke(Eduki edukia) {
         if (this.titulua.equals(edukia.titulua)) {
             return false;
         }

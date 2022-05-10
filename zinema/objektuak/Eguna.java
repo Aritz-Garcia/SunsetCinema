@@ -49,6 +49,8 @@ public class Eguna {
         if (!beteta)
             if (edukiak.getIraupenOsoa() + edukia.getIraupena() <= orduDisMax*60)
                 edukiak.sartuEdukia(edukia);
+                if (edukia.getIraupena() == orduDisMax*60)
+                    beteta = true;
     }
 
     public void setEdukia(Eduki edukia) {
@@ -92,7 +94,7 @@ public class Eguna {
     }
 
     public EdukiZerrenda gehituDaitezke(EdukiZerrenda edukiak) {
-        return edukiak.getGehituDaitezke(this.edukiak);
+        return edukiak.getGehituDaitezke(this.edukiak, this.orduDisMax*60 - this.edukiak.getIraupenOsoa());
     }
 
     public int getIraupena() {
@@ -105,6 +107,14 @@ public class Eguna {
 
     public int getEdukiKop() {
         return this.edukiak.getEdukiKop();
+    }
+
+    public void idatziCSV(String path) {
+        this.edukiak.idatziCSVEgunean(path);
+    }
+
+    public boolean betetaDago() {
+        return beteta;
     }
 
 }

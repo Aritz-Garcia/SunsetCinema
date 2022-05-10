@@ -64,15 +64,16 @@ public class Login {
 		// ImageIcon("C:\\Users\\in1dam\\eclipse-workspace\\Interface\\src\\logoGris.png")));
 
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0 };
+		gridBagLayout.columnWidths = new int[] { 0, 0, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 0, 0, 0, 0, 0, 0, 0, 0 };
-		gridBagLayout.columnWeights = new double[] { 1.0, 0.0, 1.0, Double.MIN_VALUE };
+		gridBagLayout.columnWeights = new double[] { 1.0, 0.0, 1.0, 1.0, Double.MIN_VALUE };
 		gridBagLayout.rowWeights = new double[] { 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE };
 		frame.getContentPane().setLayout(gridBagLayout);
 
 		JLabel lblLogin = new JLabel("LOGIN");
 		lblLogin.setFont(new Font("Tahoma", Font.BOLD, 15));
 		GridBagConstraints gbc_lblLogin = new GridBagConstraints();
+		gbc_lblLogin.gridwidth = 2;
 		gbc_lblLogin.insets = new Insets(0, 0, 5, 5);
 		gbc_lblLogin.gridx = 1;
 		gbc_lblLogin.gridy = 1;
@@ -80,25 +81,36 @@ public class Login {
 
 		Box horizontalBox = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox = new GridBagConstraints();
-		gbc_horizontalBox.fill = GridBagConstraints.HORIZONTAL;
+		gbc_horizontalBox.anchor = GridBagConstraints.WEST;
 		gbc_horizontalBox.insets = new Insets(0, 0, 5, 5);
 		gbc_horizontalBox.gridx = 1;
 		gbc_horizontalBox.gridy = 3;
 		frame.getContentPane().add(horizontalBox, gbc_horizontalBox);
 
+		Action action = new AbstractAction(){
+			public void actionPerformed(ActionEvent e) {
+				logeatu();
+			}
+		};
+		
 		JLabel lblErabiltzailea = new JLabel("Erabiltzailea:");
 		horizontalBox.add(lblErabiltzailea);
-
-		Component rigidArea = Box.createRigidArea(new Dimension(20, 20));
-		horizontalBox.add(rigidArea);
-
-		textFieldErabiltzailea = new JTextField();
-		horizontalBox.add(textFieldErabiltzailea);
-		textFieldErabiltzailea.setColumns(10);
+		
+				textFieldErabiltzailea = new JTextField();
+				GridBagConstraints gbc_textFieldErabiltzailea = new GridBagConstraints();
+				gbc_textFieldErabiltzailea.fill = GridBagConstraints.HORIZONTAL;
+				gbc_textFieldErabiltzailea.insets = new Insets(0, 0, 5, 5);
+				gbc_textFieldErabiltzailea.gridx = 2;
+				gbc_textFieldErabiltzailea.gridy = 3;
+				frame.getContentPane().add(textFieldErabiltzailea, gbc_textFieldErabiltzailea);
+				textFieldErabiltzailea.setColumns(10);
+				
+					
+						textFieldErabiltzailea.addActionListener(action);
 
 		Box horizontalBox_1 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_1 = new GridBagConstraints();
-		gbc_horizontalBox_1.fill = GridBagConstraints.HORIZONTAL;
+		gbc_horizontalBox_1.anchor = GridBagConstraints.WEST;
 		gbc_horizontalBox_1.insets = new Insets(0, 0, 5, 5);
 		gbc_horizontalBox_1.gridx = 1;
 		gbc_horizontalBox_1.gridy = 4;
@@ -106,17 +118,21 @@ public class Login {
 
 		JLabel lblPasahitza = new JLabel("Pasahitza:");
 		horizontalBox_1.add(lblPasahitza);
-
-		Component rigidArea_1 = Box.createRigidArea(new Dimension(20, 20));
-		horizontalBox_1.add(rigidArea_1);
-
-		textFieldPasahitza = new JPasswordField();
-		textFieldPasahitza.setColumns(10);
-		horizontalBox_1.add(textFieldPasahitza);
+		
+				textFieldPasahitza = new JPasswordField();
+				GridBagConstraints gbc_textFieldPasahitza = new GridBagConstraints();
+				gbc_textFieldPasahitza.fill = GridBagConstraints.HORIZONTAL;
+				gbc_textFieldPasahitza.insets = new Insets(0, 0, 5, 5);
+				gbc_textFieldPasahitza.gridx = 2;
+				gbc_textFieldPasahitza.gridy = 4;
+				frame.getContentPane().add(textFieldPasahitza, gbc_textFieldPasahitza);
+				textFieldPasahitza.setColumns(10);
+				textFieldPasahitza.addActionListener(action);
 
 		Box horizontalBox_1_1 = Box.createHorizontalBox();
 		GridBagConstraints gbc_horizontalBox_1_1 = new GridBagConstraints();
 		gbc_horizontalBox_1_1.fill = GridBagConstraints.HORIZONTAL;
+		gbc_horizontalBox_1_1.gridwidth = 2;
 		gbc_horizontalBox_1_1.insets = new Insets(0, 0, 5, 5);
 		gbc_horizontalBox_1_1.gridx = 1;
 		gbc_horizontalBox_1_1.gridy = 5;
@@ -124,16 +140,16 @@ public class Login {
 
 		JButton btnAtzera = new JButton("Atzera");
 		horizontalBox_1_1.add(btnAtzera);
-
-		Component rigidArea_1_1 = Box.createRigidArea(new Dimension(20, 20));
-		horizontalBox_1_1.add(rigidArea_1_1);
+		
+		Component glue = Box.createGlue();
+		horizontalBox_1_1.add(glue);
 
 		JButton btnLogeatu = new JButton("Logeatu");
 		
 		horizontalBox_1_1.add(btnLogeatu);
-
-		Component rigidArea_2 = Box.createRigidArea(new Dimension(20, 20));
-		horizontalBox_1_1.add(rigidArea_2);
+		
+		Component glue_1 = Box.createGlue();
+		horizontalBox_1_1.add(glue_1);
 
 		JButton btnErregistratu = new JButton("Erregistratu");
 		horizontalBox_1_1.add(btnErregistratu);
@@ -152,15 +168,7 @@ public class Login {
 			}
 		});
 
-		Action action = new AbstractAction(){
-			public void actionPerformed(ActionEvent e) {
-				logeatu();
-			}
-		};
-
-	
-		textFieldErabiltzailea.addActionListener(action);
-		textFieldPasahitza.addActionListener(action);
+		
 
 		btnLogeatu.addActionListener(action);
 

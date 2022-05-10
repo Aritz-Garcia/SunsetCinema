@@ -64,7 +64,15 @@ public class SunsetCinema {
 		
 		return astea[i].getIraupena();
 	}
+	public int getIraupena(AstekoEguna e) {
+		
+		return astea[this.fromAstekoEgunaToIndex(e)].getIraupena();
+	}
 
+	public int getOrduMax(AstekoEguna e) {
+		
+		return astea[this.fromAstekoEgunaToIndex(e)].getOrduMax();
+	}
 	public int getOrduMax(int i) {
 		
 		return astea[i].getOrduMax();
@@ -285,6 +293,12 @@ public class SunsetCinema {
 		}
 	}
 
+	public void egunakCSV() {
+		for (Eguna eguna : astea) {
+			eguna.idatziCSV(PATH_MAP.get(eguna.getIzena()));
+		}
+    }
+
 	public void edukiaKendu(int id) {
 		edukiak.ezabatuById(id);
 	}
@@ -320,5 +334,11 @@ public class SunsetCinema {
 	public int getAzkenId() {
 		return edukiak.getAzkenId();
 	}
+
+	public boolean egunaBetetaDago(AstekoEguna eguna) {
+		return astea[fromAstekoEgunaToIndex(eguna)].betetaDago();
+	}
+
+    
 	
 }
