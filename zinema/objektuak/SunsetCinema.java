@@ -83,10 +83,6 @@ public class SunsetCinema {
 		return astea[i].getEdukiKop();
 	}
 
-	public void idatzi() {
-
-	}
-
 	public void irakurriLangileak() {
 		ArrayList<String> langileak = irakurri(PATH_MAP.get("Langileak"));
 		for (String langilea : langileak) {
