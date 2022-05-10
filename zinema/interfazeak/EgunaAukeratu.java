@@ -283,9 +283,12 @@ public class EgunaAukeratu extends JPanel {
 				}
 				lblBatBestIraupErantz.setText(sobEmaitza + " minutu soberan");
 				if (sobEmaitza==0) {
-					btnBalioztatu.setEnabled(true);;
+					btnBalioztatu.setEnabled(true);
+					btnKartelera.setEnabled(false);
+				} else {
+					btnBalioztatu.setEnabled(false);
+					btnKartelera.setEnabled(true);
 				}
-				btnKartelera.setEnabled(true);;
 			}
 		});
 
