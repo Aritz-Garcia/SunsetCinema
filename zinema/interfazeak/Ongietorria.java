@@ -64,7 +64,7 @@ public class Ongietorria {
 			}
 		});
 		contentPane.setLayout(null);
-		JLabel lblEdukiak = new JLabel("Ongietorria izan Sunset Zinemara, zein pelikulak zein prezioak hoberenak diren lekua!");
+		JLabel lblEdukiak = new JLabel("Ongi etorria izan Sunset Zinemara, zein pelikulak zein prezioak hoberenak diren lekua!");
 		lblEdukiak.setBounds(5, 19, 489, 237);
 		lblEdukiak.setBackground(new Color(240, 240, 240));
 		contentPane.add(lblEdukiak);
