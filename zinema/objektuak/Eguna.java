@@ -86,4 +86,8 @@ public class Eguna {
         return edukiak.getEditLaburpena();
     }
 
+    public EdukiZerrenda gehituDaitezke(EdukiZerrenda edukiak) {
+        return edukiak.getGehituDaitezke(this.edukiak);
+    }
+
 }

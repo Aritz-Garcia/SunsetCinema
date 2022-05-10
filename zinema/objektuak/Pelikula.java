@@ -38,10 +38,10 @@ public class Pelikula extends LargoMe{
     }
 
     public boolean generoTituluaKonparatu(Pelikula pelikula) {
-        if (this.getGeneroa().equals(pelikula.getGeneroa())) {
-            return true;
+        if (this.generoa.equalsIgnoreCase(pelikula.generoa) || this.getTitulua().equalsIgnoreCase(pelikula.getTitulua())) {
+            return false;
         }
-        return false;
+        return true;
     }
 
     public String toString() {

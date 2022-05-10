@@ -276,4 +276,8 @@ public class SunsetCinema {
 	public String[][] editEguna(AstekoEguna izeEguna) {
 		return astea[fromAstekoEgunaToIndex(izeEguna)].getEditLaburpena();
 	}
+
+	public EdukiZerrenda gehituDaitezkeEgunean(AstekoEguna izeEguna) {
+		return astea[fromAstekoEgunaToIndex(izeEguna)].gehituDaitezke(this.edukiak);
+	}
 }

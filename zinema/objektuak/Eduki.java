@@ -44,10 +44,10 @@ public class Eduki {
     }
 
     public boolean generoTituluaKonparatu(Eduki edukia) {
-        if (this.titulua.equals(edukia.getTitulua())) {
-            return true;
+        if (this.titulua.equals(edukia.titulua)) {
+            return false;
         }
-        return false;
+        return true;
     }
 
 	public boolean konpId(int id){

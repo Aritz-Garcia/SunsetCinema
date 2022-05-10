@@ -162,7 +162,7 @@ public class Contenidos {
 		
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
-			SunsetCinema.getNireSunsetCinema().editEguna(eguna),
+			SunsetCinema.getNireSunsetCinema().gehituDaitezkeEgunean(eguna).getEditLaburpena(),
 			izenburuak
 		) {
 			Class[] columnTypes = new Class[] {
