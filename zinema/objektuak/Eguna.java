@@ -49,7 +49,7 @@ public class Eguna {
         if (!beteta)
             if (edukiak.getIraupenOsoa() + edukia.getIraupena() <= orduDisMax*60)
                 edukiak.sartuEdukia(edukia);
-                if (edukiak.getIraupenOsoa() == orduDisMax*60)
+                if (edukiak.getIraupenOsoa() >= orduDisMax*60)
                     beteta = true;
     }
 
