@@ -59,10 +59,10 @@ public class EgunaAukeratu extends JPanel {
 	 */
 	private void initialize() {
 		frame = new JFrame();
-		frame.setBounds(100, 100, 528, 365);
+		frame.setBounds(100, 100, 595, 365);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		GridBagLayout gridBagLayout = new GridBagLayout();
-		gridBagLayout.columnWidths = new int[] { 30, 0, 0, 0, 0 };
+		gridBagLayout.columnWidths = new int[] { 30, 278, 0, 0, 0 };
 		gridBagLayout.rowHeights = new int[] { 30, 0, 30, 0, 0, 0, 30, 0, 30 };
 		gridBagLayout.columnWeights = new double[] { 0.0, 1.0, 0.0, 1.0, 1.0 };
 		gridBagLayout.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0 };
@@ -263,10 +263,28 @@ public class EgunaAukeratu extends JPanel {
 
 		comboBoxEnpresaKargua.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(SunsetCinema.getNireSunsetCinema().infoDauka(comboBoxEnpresaKargua.getSelectedIndex()))
-						verticalBox.setVisible(true);
-					else
-						verticalBox.setVisible(false);
+				int iraup = SunsetCinema.getNireSunsetCinema().getIraupena(comboBoxEnpresaKargua.getSelectedIndex());
+				int egunDenb = SunsetCinema.getNireSunsetCinema().getOrduMax(comboBoxEnpresaKargua.getSelectedIndex())*60;
+				int sobEmaitza = egunDenb-iraup;
+				if(SunsetCinema.getNireSunsetCinema().infoDauka(comboBoxEnpresaKargua.getSelectedIndex())){
+					int edukiKopEmaitza = SunsetCinema.getNireSunsetCinema().getEdukiKop(comboBoxEnpresaKargua.getSelectedIndex());
+					int batazBest = iraup/edukiKopEmaitza;
+					edukiKop.setText(edukiKopEmaitza + "");
+					bzbsIraupena.setText(batazBest + "");
+					verticalBox.setVisible(true);
+					horizontalBox_2.setVisible(true);
+					horizontalBox_3.setVisible(true);
+					horizontalBox_4.setVisible(true);
+				} else {
+					verticalBox.setVisible(true);
+					horizontalBox_2.setVisible(false);
+					horizontalBox_3.setVisible(false);
+					horizontalBox_4.setVisible(true);
+				}
+				lblBatBestIraupErantz.setText(sobEmaitza + " minutu soberan");
+				if (sobEmaitza==0) {
+					btnBalioztatu.setEnabled(true);;
+				}
 				btnKartelera.setEnabled(true);;
 			}
 		});
