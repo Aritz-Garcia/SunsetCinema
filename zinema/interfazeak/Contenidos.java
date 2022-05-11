@@ -635,6 +635,7 @@ public class Contenidos {
 
 	}
 
+	/** Laburmetraietara aldatzeko metodoa */
 	private void aldatuLab() {
 		panelLab.setVisible(true);
 		panelPel.setVisible(false);
@@ -645,6 +646,8 @@ public class Contenidos {
 		zein = "Lab";
 	}
 
+	
+	/** Pelikuletara aldatzeko metodoa */
 	private void aldatuPel() {
 		panelLab.setVisible(false);
 		panelPel.setVisible(true);
@@ -655,6 +658,7 @@ public class Contenidos {
 		zein = "Pel";
 	}
 
+	/** Dokumentaletara aldatzeko metodoa */
 	private void aldatuDok() {
 		panelLab.setVisible(false);
 		panelPel.setVisible(false);
@@ -664,6 +668,7 @@ public class Contenidos {
 		zein = "Dok";
 	}
 
+	/** Sartutako datuak sortzeko klasea */
 	private void sortu(AstekoEguna eguna) {
 		if (botoiak.getSelection() == null)
 			return;
@@ -700,6 +705,7 @@ public class Contenidos {
 		refresh(eguna);
 	}
 
+	/** Datuak balidatzeko metodoa */
 	private void balidatu(AstekoEguna eguna) {
 		if (id.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Id-aren eremua bete behar da");
@@ -732,6 +738,7 @@ public class Contenidos {
 		}
 	}
 
+	/** Tablak errefreskatzeko metodoa */
 	private void refresh(AstekoEguna eguna) {
 		if (SunsetCinema.getNireSunsetCinema().egunaBetetaDago(eguna)) {
 			btnResDia.setEnabled(true);

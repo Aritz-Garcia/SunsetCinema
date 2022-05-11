@@ -16,7 +16,6 @@ import java.awt.GridBagConstraints;
 import javax.swing.JTextField;
 import java.awt.Insets;
 import java.awt.event.WindowEvent;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -337,6 +336,7 @@ public class EdukiBerria extends JFrame {
 		fieldList.add(tema);
 	}
 
+	/** Laburmetraietara aldatzeko metodoa */
 	private void aldatuLab() {
 		panelLab.setVisible(true);
 		panelPel.setVisible(false);
@@ -347,6 +347,7 @@ public class EdukiBerria extends JFrame {
 		zein = "Lab";
 	}
 
+	/** Pelikuletara aldatzeko metodoa */
 	private void aldatuPel() {
 		panelLab.setVisible(false);
 		panelPel.setVisible(true);
@@ -357,6 +358,7 @@ public class EdukiBerria extends JFrame {
 		zein = "Pel";
 	}
 
+	/** Dokumentaletara aldatzeko metodoa */
 	private void aldatuDok() {
 		panelLab.setVisible(false);
 		panelPel.setVisible(false);
@@ -366,6 +368,7 @@ public class EdukiBerria extends JFrame {
 		zein = "Dok";
 	}
 
+	/** Sartutako datuak sortzeko klasea */
 	private void sortu() {
 		if(botoiak.getSelection() == null) return;
 		switch(zein.toLowerCase()) {
@@ -400,6 +403,7 @@ public class EdukiBerria extends JFrame {
 		
 	}
 
+	/** Datuak balidatzeko metodoa */
 	private void balidatu() {
 		if(id.getText().isEmpty()) {
 			JOptionPane.showMessageDialog(null, "Id-aren eremua bete behar da");

@@ -174,6 +174,7 @@ public class Login {
 
 	}
 
+	/** Logeatzeko errore mezuak agertzeko metodoa */
 	public void logeatu() {
 		if (textFieldErabiltzailea.getText().isBlank()) {
 			setErrorea("Erabiltzailea eremua bete behar da.");
@@ -195,6 +196,7 @@ public class Login {
 		}
 	}
 
+	/** Zein mezu agertu behar den agertzeko metodoa */
 	private void setErrorea(String errorea) {
 		JOptionPane.showMessageDialog(frame, errorea, "Errorea", JOptionPane.ERROR_MESSAGE);
 

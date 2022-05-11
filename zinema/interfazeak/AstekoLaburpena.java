@@ -301,6 +301,11 @@ public class AstekoLaburpena {
 		});
 		
 	}
+	/**
+	 * Edukien inforamzioa lortzeko metodoa
+	 * @param eguna Eguna
+	 * @param edukia Edukia
+	 */
 	private void setEdukiInfo(AstekoEguna eguna, int edukia) {
 		textPane.setText(SunsetCinema.getNireSunsetCinema().infoEgunEdukia(edukia, eguna));
 	}
