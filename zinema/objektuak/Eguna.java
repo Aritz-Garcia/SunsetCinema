@@ -82,9 +82,6 @@ public class Eguna {
      * Edukia editatzeko metodoa
      * @param edukia Edukia
      */
-    public void edukiaEditatu(Eduki edukia) {
-        this.edukiak.editatuEdukia(edukia);
-    }
 
     /**
      * Eguneko azken ordua lortzeko metodoa

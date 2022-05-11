@@ -120,4 +120,9 @@ public class Eduki {
     public String getIzenburua() {
         return this.titulua;
     }
+
+    public void edit(String newIzen, int newDenb) {
+        this.iraupena = newDenb;
+        this.titulua = newIzen;
+    }
 }

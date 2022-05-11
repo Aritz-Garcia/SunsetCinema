@@ -522,4 +522,8 @@ public class SunsetCinema {
 		return astea[fromAstekoEgunaToIndex(eguna)].betetaDago();
 	}
 
+    public void edukiaEditatu(Eduki edukia, String newTitle, int newDenb) {
+		edukiak.editatuEdukia(edukia, newTitle, newDenb);
+    }
+
 }

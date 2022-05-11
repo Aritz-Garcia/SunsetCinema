@@ -78,12 +78,14 @@ public class EdukiZerrenda {
     /**
      * Eduki baten informazioa editatzeko metodoa
      * @param edukia Edukia
+     * @param newDenb
+     * @param newTitle
      */
-    public void editatuEdukia(Eduki edukia) {
+    public void editatuEdukia(Eduki edukia, String newTitle, int newDenb) {
         int i = 0;
         for (Eduki eduki : edukiak) {
             if (eduki.equals(edukia)) {
-                edukiak.set(i, edukia);
+                eduki.edit(newTitle, newDenb);
                 break;
             }
             i++;

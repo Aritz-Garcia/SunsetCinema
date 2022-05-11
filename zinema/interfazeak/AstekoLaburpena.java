@@ -144,7 +144,7 @@ public class AstekoLaburpena {
 		table_1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent event) {
-				setEdukiInfo(AstekoEguna.ASTELEHENA, table.getSelectedRow());
+				setEdukiInfo(AstekoEguna.ASTEARTEA, table_1.getSelectedRow());
 			}
 		});
 		scrollPane_1.setViewportView(table_1);
@@ -168,7 +168,7 @@ public class AstekoLaburpena {
 		table_2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent event) {
-				setEdukiInfo(AstekoEguna.ASTEAZKENA, table.getSelectedRow());
+				setEdukiInfo(AstekoEguna.ASTEAZKENA, table_2.getSelectedRow());
 			}
 		});
 		scrollPane_2.setViewportView(table_2);
@@ -192,7 +192,7 @@ public class AstekoLaburpena {
 		table_3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent event) {
-				setEdukiInfo(AstekoEguna.OSTEGUNA, table.getSelectedRow());
+				setEdukiInfo(AstekoEguna.OSTEGUNA, table_3.getSelectedRow());
 			}
 		});
 		scrollPane_3.setViewportView(table_3);
@@ -216,7 +216,7 @@ public class AstekoLaburpena {
 		table_4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent event) {
-				setEdukiInfo(AstekoEguna.OSTIRALA, table.getSelectedRow());
+				setEdukiInfo(AstekoEguna.OSTIRALA, table_4.getSelectedRow());
 			}
 		});
 		scrollPane_4.setViewportView(table_4);
@@ -240,7 +240,7 @@ public class AstekoLaburpena {
 		table_5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent event) {
-				setEdukiInfo(AstekoEguna.LARUNBATA, table.getSelectedRow());
+				setEdukiInfo(AstekoEguna.LARUNBATA, table_5.getSelectedRow());
 			}
 		});
 		scrollPane_5.setViewportView(table_5);
@@ -264,7 +264,7 @@ public class AstekoLaburpena {
 		table_6.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent event) {
-				setEdukiInfo(AstekoEguna.IGANDEA, table.getSelectedRow());
+				setEdukiInfo(AstekoEguna.IGANDEA, table_6.getSelectedRow());
 			}
 		});
 		scrollPane_6.setViewportView(table_6);
@@ -279,6 +279,7 @@ public class AstekoLaburpena {
 		panel_1.setLayout(gbl_panel_1);
 		
 		textPane = new JTextPane();
+		textPane.setEditable(false);
 		GridBagConstraints gbc_verticalBox = new GridBagConstraints();
 		gbc_verticalBox.insets = new Insets(0, 0, 5, 5);
 		gbc_verticalBox.anchor = GridBagConstraints.NORTHEAST;

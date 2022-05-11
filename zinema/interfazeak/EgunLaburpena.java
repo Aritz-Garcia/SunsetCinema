@@ -99,7 +99,7 @@ public class EgunLaburpena {
 		scrollPane.setViewportView(table_1);
 		
 		textPane = new JTextPane();
-		textPane.setEnabled(false);
+		textPane.setEditable(false);
 		GridBagConstraints gbc_textPane = new GridBagConstraints();
 		gbc_textPane.insets = new Insets(0, 0, 5, 5);
 		gbc_textPane.fill = GridBagConstraints.BOTH;

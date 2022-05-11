@@ -35,8 +35,12 @@ import objektuak.Eduki;
 import objektuak.EdukiZerrenda;
 import objektuak.Pegi;
 import objektuak.SunsetCinema;
+import java.awt.event.FocusAdapter;
+import java.awt.event.FocusEvent;
+import java.awt.event.InputMethodListener;
+import java.awt.event.InputMethodEvent;
 
-public class Contenidos {
+public class Edukiak {
 
 	private JFrame frame;
 	private EdukiZerrenda posibleak;
@@ -76,7 +80,7 @@ public class Contenidos {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Contenidos window = new Contenidos(eguna);
+					Edukiak window = new Edukiak(eguna);
 					window.frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -88,7 +92,7 @@ public class Contenidos {
 	/**
 	 * Create the application.
 	 */
-	public Contenidos(AstekoEguna eguna) {
+	public Edukiak(AstekoEguna eguna) {
 		initialize(eguna);
 	}
 
@@ -212,25 +216,18 @@ public class Contenidos {
 
 		tablePosibleak = new JTable();
 		tablePosibleak.setModel(new DefaultTableModel(
-				posibleak.getEditLaburpena(),
-				izenburuak) {
+			posibleak.getEditLaburpena(),
+			new String[] {
+				"ID", "Izenburua", "Iraupena"
+			}
+		) {
 			Class[] columnTypes = new Class[] {
-					Integer.class, String.class, Integer.class
+				Integer.class, String.class, Integer.class
 			};
-
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
 			}
-
-			boolean[] columnEditables = new boolean[] {
-					false, true, true
-			};
-
-			public boolean isCellEditable(int row, int column) {
-				return columnEditables[column];
-			}
 		});
-		tablePosibleak.getColumnModel().getColumn(0).setResizable(false);
 		tablePosibleak.getColumnModel().getColumn(0).setPreferredWidth(41);
 		scrollPane.setViewportView(tablePosibleak);
 		
@@ -502,7 +499,7 @@ public class Contenidos {
 		rigidArea = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_1.add(rigidArea);
 
-		ezBot = new JButton("Kantzelatu");
+		ezBot = new JButton("Datuak Ezabatu");
 		ezBot.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				reset();
@@ -536,6 +533,7 @@ public class Contenidos {
 		sortu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				balidatu(eguna);
+				reset();
 			}
 		});
 		horizontalBox_2.add(sortu);
@@ -593,7 +591,7 @@ public class Contenidos {
 
 		JLabel lblNewLabel = new JLabel("New label");
 		lblNewLabel.setIconTextGap(0);
-		lblNewLabel.setIcon(new ImageIcon(Contenidos.class.getResource("/imagenes/logoa/logo_gris_grande.png")));
+		lblNewLabel.setIcon(new ImageIcon(Edukiak.class.getResource("/imagenes/logoa/logo_gris_grande.png")));
 		lblNewLabel.setBounds(156, 5, 472, 524);
 		contentPane.add(lblNewLabel);
 
@@ -609,18 +607,29 @@ public class Contenidos {
 				SunsetCinema.getNireSunsetCinema().kargatuEdukiak();
 				posibleak = SunsetCinema.getNireSunsetCinema().gehituDaitezkeEgunean(eguna);
 				refresh(eguna);
+				reset();
 			}
 		});
 
 		btnConfirmar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				try {
+					editCheck();
 					SunsetCinema.getNireSunsetCinema().edukiakCSV();
+					refresh(eguna);
 				} catch (IOException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				refresh(eguna);
+			}
+
+			private void editCheck() {
+				for (int i = 0; i < tablePosibleak.getRowCount(); i++) {
+					String newTitle = (String) tablePosibleak.getValueAt(i, 1);
+					int newDenb = Integer.parseInt( tablePosibleak.getValueAt(i, 2).toString() );
+					SunsetCinema.getNireSunsetCinema().edukiaEditatu(posibleak.getEdukia(i), newTitle, newDenb);
+				}
 			}
 		});
 
@@ -683,7 +692,7 @@ public class Contenidos {
 					JOptionPane.showMessageDialog(null, "Edukia existitzen da");
 				}
 				break;
-			case "doc":
+			case "dok":
 				if (SunsetCinema.getNireSunsetCinema().gehituDoku(Integer.parseInt(id.getText()), titulua.getText(),
 						Integer.parseInt(iraupena.getText()), tema.getText(), produktorea.getText())) {
 					JOptionPane.showMessageDialog(null, "Edukia ondo sortu da");

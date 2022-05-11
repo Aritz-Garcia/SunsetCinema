@@ -255,7 +255,7 @@ public class EgunaAukeratu extends JPanel {
 		btnKartelera.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.setVisible(false);
-				Contenidos.main((AstekoEguna)comboBoxEnpresaKargua.getSelectedItem());
+				Edukiak.main((AstekoEguna)comboBoxEnpresaKargua.getSelectedItem());
 			}
 		});
 
