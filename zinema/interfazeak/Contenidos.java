@@ -499,15 +499,6 @@ public class Contenidos {
 		glue = Box.createGlue();
 		horizontalBox_1.add(glue);
 
-		okBot = new JButton("OK");
-		okBot.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				reset();
-				balidatu(eguna);
-			}
-		});
-		horizontalBox_1.add(okBot);
-
 		rigidArea = Box.createRigidArea(new Dimension(20, 20));
 		horizontalBox_1.add(rigidArea);
 
@@ -544,7 +535,7 @@ public class Contenidos {
 		JButton sortu = new JButton("+");
 		sortu.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-
+				balidatu(eguna);
 			}
 		});
 		horizontalBox_2.add(sortu);
