@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"interfazeak"},{"l":"objektuak"}];updateSearchResults();
