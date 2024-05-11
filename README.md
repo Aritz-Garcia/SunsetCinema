@@ -4,7 +4,7 @@
 <!-- Logo -->
 <div align="center">
 
-<img src="img/logo_nombre_blanco.png" alt="Logo Sunset Cinema" width="200px">
+<img src="img/logo_sunset_cinema.png" alt="Logo Sunset Cinema" width="300px">
 
 </div>
 
