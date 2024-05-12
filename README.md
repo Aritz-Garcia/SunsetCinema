@@ -30,6 +30,11 @@ Fitxategia irekitzerakoan "▶" botoia klikatu programa irekitzeko.
 
 ## Galeria 🖼
 ### Bideoa: 🎥
+<div align="center">
+
+https://github.com/Aritz-Garcia/SunsetCinema/assets/73273260/c908db16-05fe-4af3-86ea-69e6b5f890c7
+  
+</div>
 
 ## Garatzaileak 👨🏻‍💻
 - **Aritz Garcia:** [@Aritz-Garcia](https://github.com/Aritz-Garcia)
